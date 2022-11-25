@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { PreventionComponent } from './prevention/prevention.component';
 import { SymptomsComponent } from './symptoms/symptoms.component';
 import { AboutComponent } from './about/about.component';
+import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,10 @@ import { AboutComponent } from './about/about.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule],
+    FormsModule,
+    ToastNoAnimationModule.forRoot(),
+    ToastrModule.forRoot()
+],
   providers: [],
   bootstrap: [AppComponent]
 })
