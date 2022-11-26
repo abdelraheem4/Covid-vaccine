@@ -25,7 +25,8 @@ const routes: Routes = [ {
 {
   path:'admin',
   loadChildren:()=>AdminModule
-}
+},
+
 
 
 ];
