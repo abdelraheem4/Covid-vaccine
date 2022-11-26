@@ -9,6 +9,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import{HttpClientModule}from '@angular/common/http'
 
@@ -23,7 +24,6 @@ import{HttpClientModule}from '@angular/common/http'
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,

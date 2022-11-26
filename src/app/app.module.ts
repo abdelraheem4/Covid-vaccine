@@ -11,6 +11,12 @@ import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toas
 import { NgxSpinnerModule } from "ngx-spinner";
 import{HttpClientModule}from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +33,14 @@ import { SharedModule } from './shared/shared.module';
     ToastrModule.forRoot(),
     NgxSpinnerModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDialogModule,
+    BrowserAnimationsModule
+
+
     
 ],
   providers: [],
