@@ -5,17 +5,21 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SharedModule } from '../shared/shared.module';
 import { ManageUserComponent } from './manage-user/manage-user.component';
+import { TestmonialComponent } from './testmonial/testmonial.component';
+import { VaccinaiationCenterComponent } from './vaccinaiation-center/vaccinaiation-center.component';
 
 
 @NgModule({
   declarations: [
-SidebarComponent,
-ManageUserComponent
+    SidebarComponent,
+    ManageUserComponent,
+    TestmonialComponent,
+    VaccinaiationCenterComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    
+    SharedModule
   ]
 })
 export class AdminModule { }

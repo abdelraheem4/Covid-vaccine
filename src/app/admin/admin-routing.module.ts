@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ManageUserComponent } from './manage-user/manage-user.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { TestmonialComponent } from './testmonial/testmonial.component';
+import { VaccinaiationCenterComponent } from './vaccinaiation-center/vaccinaiation-center.component';
 
 const routes: Routes = [
   {
@@ -11,7 +13,15 @@ const routes: Routes = [
   {
     path:'user',
     component:ManageUserComponent
-  }
+  },
+  {
+    path:'testmonial',
+    component:TestmonialComponent
+  },
+  {
+    path:'vaccinaiationcenter',
+    component:VaccinaiationCenterComponent
+  },
 ];
 
 @NgModule({
