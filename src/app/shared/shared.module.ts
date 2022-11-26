@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
+import{HttpClientModule}from '@angular/common/http'
 
 
 @NgModule({
@@ -27,7 +28,9 @@ import { FooterComponent } from './footer/footer.component';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+
+    HttpClientModule
   ],
   exports:[
     HeaderComponent,
@@ -38,7 +41,8 @@ import { FooterComponent } from './footer/footer.component';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }

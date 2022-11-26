@@ -1,0 +1,17 @@
+<table>
+    <tr>
+        <th>vaccine Number</th>
+        <th>vaccine Name</th>
+        <th>vaccine doses</th>
+        <th>vaccine date exp</th>
+    </tr>
+    <tr *ngFor="let obj of vaccines.Vaccine">
+        <td>{{obj.vaccineid}}</td>
+        <td>{{obj.vaccinename}}</td>
+        <td>{{obj.vaccinedoses}}</td>
+        <td>{{obj.vaccineexp}}</td>
+
+    
+    </tr>
+  
+</table>
