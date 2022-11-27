@@ -16,19 +16,18 @@ const routes: Routes = [
     component:ManageUserComponent
   },
   {
-<<<<<<< HEAD
     path:'vaccine',
     component:ManagevaccinesComponent
-  }
-=======
+  },
+  {
     path:'testmonial',
     component:TestmonialComponent
   },
+
   {
     path:'vaccinaiationcenter',
     component:VaccinaiationCenterComponent
-  },
->>>>>>> fe159490f59683abd97ed800c8cdc3f9bfdd50e3
+  }
 ];
 
 @NgModule({
