@@ -19,6 +19,15 @@ const routes: Routes = [
 <<<<<<< HEAD
     path:'vaccine',
     component:ManagevaccinesComponent
+  },
+  {
+    path:'testmonial',
+    component:TestmonialComponent
+  },
+
+  {
+    path:'vaccinaiationcenter',
+    component:VaccinaiationCenterComponent
   }
 =======
     path:'testmonial',
