@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { VaccinesService } from 'src/app/Services/vaccines.service';
+import { CreatevaccineComponent } from '../createvaccine/createvaccine.component';
 
 @Component({
   selector: 'app-managevaccines',
@@ -10,16 +11,14 @@ import { VaccinesService } from 'src/app/Services/vaccines.service';
 })
 export class ManagevaccinesComponent implements OnInit {
 
-  @Input() id:number=0;
-  @Input() Vaccinename:string='N/A';
-  @Input() Vaccinedoses:number=0;
-  @Input() Vaccineexp:string|undefined;
-
 
   constructor(private route:Router,public vaccines:VaccinesService ,private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.vaccines.getall();
+  }
+  opendialog(){
+    this.dialog.open(CreatevaccineComponent)
   }
 
 }
