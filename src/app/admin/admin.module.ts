@@ -8,6 +8,7 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
 import { ManagevaccinesComponent } from './managevaccines/managevaccines.component';
 import { VaccinaiationCenterComponent } from './vaccinaiation-center/vaccinaiation-center.component';
 import { TestmonialComponent } from './testmonial/testmonial.component';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ ManagevaccinesComponent,
     SidebarComponent,
     ManageUserComponent,
     TestmonialComponent,
-    VaccinaiationCenterComponent
+    VaccinaiationCenterComponent,
+    CreateUserComponent
   
   ],
   imports: [

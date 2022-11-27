@@ -7,25 +7,13 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class HomeService {
-  User:any=[{}];
+  
   display_image:any;
   allTestmonial:any[] = [];
   allVacciniationCentre:any[] = [];
   constructor(private http:HttpClient,private spinner :NgxSpinnerService ,private toastr:ToastrService) { }
 
-  getALLUser(){
-    
-    this.spinner.show();
-    this.http.get('https://localhost:44352/api/UserAccount').subscribe((res)=>{
-      this.User=res;
-      this.spinner.hide();
-      this.toastr.success('Data Retrieved!!');
-    },err=>{
-      this.spinner.hide();
-      this.toastr.error(err.message,err.status);
-    }
-    )
-  }
+  
     GetAllTestmonials(){
       this.spinner.show();
       this.http.get('https://localhost:44352/api/testmonial/GetAll').subscribe((resp:any)=>

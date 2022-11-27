@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { HomeService } from 'src/app/Services/home.service';
+import { UserService } from 'src/app/Services/user.service';
+import { CreateUserComponent } from '../create-user/create-user.component';
 
 @Component({
   selector: 'app-manage-user',
@@ -11,7 +13,7 @@ import { HomeService } from 'src/app/Services/home.service';
 })
 export class ManageUserComponent implements OnInit {
 
-  constructor(private router:Router,public home:HomeService,private dialog:MatDialog) { }
+  constructor(private router:Router,public user:UserService,private dialog:MatDialog) { }
   @ViewChild('callUpdateDailog') callUpdateDailog!:TemplateRef<any> 
   @ViewChild('callDeleteDailog') callDeleteDailog!:TemplateRef<any> 
 
@@ -31,12 +33,13 @@ export class ManageUserComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this.user.getALLUser()
   }
 
 
   opendialog()
   {
-   // this .dialog.open(CreateCourseComponent)
+    this .dialog.open(CreateUserComponent)
   }
   p_data :any={};
 
