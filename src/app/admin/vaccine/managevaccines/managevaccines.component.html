@@ -1,7 +1,5 @@
 <app-sidebar></app-sidebar>
 
-<div  class="wrapper">
-  <button (click)="opendialog()">Creat new</button>
 
     <div  class="table">
 
@@ -18,6 +16,8 @@
         <div class="cell">
           ID
         </div>
+        <button (click)="opendialog()">Creat new</button>
+
       </div>
       
       <div *ngFor="let obj of vaccines.Vaccine" class="row">
@@ -40,5 +40,4 @@
   
       
     </div>
-  </div>
 
