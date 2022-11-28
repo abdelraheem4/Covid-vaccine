@@ -23,7 +23,7 @@ ManageUserComponent,
     VaccinaiationCenterComponent,
     CreateUserComponent,
     CreatevaccineComponent,
-    ManagevaccinesComponent
+    ManagevaccinesComponent,
   ],
   imports: [
     CommonModule,

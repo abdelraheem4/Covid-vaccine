@@ -25,4 +25,15 @@ export class VaccinesService {
     )
 
   }
+  createVaccine(body:any){
+this.spinner
+this.http.post('https://localhost:5001/api/Vaccines',body).subscribe((resp)=>{
+  this.spinner.hide();
+  this.toastr.success('saved successfully');
+},err=>{
+  this.spinner.hide();
+  this.toastr.error(err.message, err.status);
+}
+)
+  }
 }
