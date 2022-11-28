@@ -54,7 +54,7 @@ export class ManageHomeComponent implements OnInit {
     let fileToUpload=<File>file[0];
     const formdata = new FormData();
     formdata.append('file', fileToUpload, fileToUpload.name);
-    this.home.uploadLogoImage(formdata);
+    this.home.uploadImageTitle1(formdata);
   }
   uploadnewsImage1(file:any){
     if(file.length == 0)
@@ -62,7 +62,7 @@ export class ManageHomeComponent implements OnInit {
     let fileToUpload=<File>file[0];
     const formdata = new FormData();
     formdata.append('file', fileToUpload, fileToUpload.name);
-    this.home.uploadLogoImage(formdata);
+    this.home.uploadNewsIm1(formdata);
   }
   uploadnewsImage2(file:any){
     if(file.length == 0)
@@ -70,7 +70,7 @@ export class ManageHomeComponent implements OnInit {
     let fileToUpload=<File>file[0];
     const formdata = new FormData();
     formdata.append('file', fileToUpload, fileToUpload.name);
-    this.home.uploadLogoImage(formdata);
+    this.home.uploadNewsIm2(formdata);
   }
   uploadnewsImage3(file:any){
     if(file.length == 0)
@@ -78,7 +78,7 @@ export class ManageHomeComponent implements OnInit {
     let fileToUpload=<File>file[0];
     const formdata = new FormData();
     formdata.append('file', fileToUpload, fileToUpload.name);
-    this.home.uploadLogoImage(formdata);
+    this.home.uploadNewsIm3(formdata);
   }
   updateform :FormGroup= new FormGroup({
          homeid: new FormControl(),
