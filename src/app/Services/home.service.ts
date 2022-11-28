@@ -11,6 +11,7 @@ export class HomeService {
   display_image:any;
   allTestmonial:any[] = [];
   allVacciniationCentre:any[] = [];
+  allHome:any[] = [];
   logoImage:any;
   title1Im:any;
   new1Im:any;
@@ -92,7 +93,7 @@ export class HomeService {
       this.http.get('https://localhost:44352/api/home/').subscribe((resp:any)=>
       {
         this.spinner.hide();
-        this.allVacciniationCentre = resp;
+        this.allHome = resp;
         this.toastr.success('All Home Centers');
       }, err=>
       {
