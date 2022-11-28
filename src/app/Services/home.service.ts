@@ -11,6 +11,11 @@ export class HomeService {
   display_image:any;
   allTestmonial:any[] = [];
   allVacciniationCentre:any[] = [];
+  logoImage:any;
+  title1Im:any;
+  new1Im:any;
+  new2Im:any;
+  new3Im:any; 
   constructor(private http:HttpClient,private spinner :NgxSpinnerService ,private toastr:ToastrService) { }
 
   
@@ -82,7 +87,105 @@ export class HomeService {
      }
      )}
 
-     getAllVacciniationCentre(){
+     getAllHome(){
+      this.spinner.show();
+      this.http.get('https://localhost:44352/api/home/').subscribe((resp:any)=>
+      {
+        this.spinner.hide();
+        this.allVacciniationCentre = resp;
+        this.toastr.success('All Home Centers');
+      }, err=>
+      {
+        this.spinner.hide();
+        this.toastr.error(err.message, err.status);
+      })
+    }
+    createHome(body:any){
+      body.imagelogo = this.logoImage;
+      body.imagetitle1 = this.title1Im;
+      body.newsimage1 = this.new1Im;
+      body.newsimage2 = this.new2Im;
+      body.newsimage3 = this.new3Im;
+      this.spinner.show();
+      this.http.post('https://localhost:44352/api/home/', body).subscribe((resp)=>
+      {
+        this.spinner.hide();
+        this.toastr.success('Created');
+      }, err=>
+      {
+        this.spinner.hide();
+        this.toastr.error(err.message, err.status);
+      })
+    }
+    uploadLogoImage(file:FormData){
+      this.http.post('https://localhost:44352/api/home/UploadImage/logo', file).subscribe((resp:any)=>{
+      this.logoImage = resp.imagelogo;
+      }, err=>
+      {
+        this.toastr.error('Can\'t Upload Image');
+      });
+      }
+      uploadImageTitle1(file:FormData){
+        this.http.post('https://localhost:44352/api/home/UploadImage/imageTitle1', file).subscribe((resp:any)=>{
+        this.title1Im = resp.imagetitle1;
+        }, err=>
+        {
+          this.toastr.error('Can\'t Upload Image');
+        });
+        }
+        uploadNewsIm1(file:FormData){
+          this.http.post('https://localhost:44352/api/home/UploadImage/newsImage1', file).subscribe((resp:any)=>{
+          this.new1Im = resp.newsimage1;
+          }, err=>
+          {
+            this.toastr.error('Can\'t Upload Image');
+          });
+          }
+          uploadNewsIm2(file:FormData){
+            this.http.post('https://localhost:44352/api/home/UploadImage/newsImage2', file).subscribe((resp:any)=>{
+            this.new2Im = resp.newsimage2;
+            }, err=>
+            {
+              this.toastr.error('Can\'t Upload Image');
+            });
+            }
+            uploadNewsIm3(file:FormData){
+              this.http.post('https://localhost:44352/api/home/UploadImage/newsImage3', file).subscribe((resp:any)=>{
+              this.new3Im = resp.newsimage3;
+              }, err=>
+              {
+                this.toastr.error('Can\'t Upload Image');
+              });
+              }
+    updateHome(body:any){
+      this.spinner.show();
+      this.http.put('https://localhost:44352/api/home/', body).subscribe((resp)=>
+      {
+        this.spinner.hide();
+        this.toastr.success('Updated');
+      }, err=>
+      {
+        this.spinner.hide();
+        this.toastr.error(err.message, err.status);
+      });
+    }
+
+    deleteHome(id:number){
+      this.spinner.show();
+      this.http.delete('https://localhost:44352/api/home/' + id).subscribe((resp)=>
+      {
+        this.spinner.hide();
+        this.toastr.success('Deleted');
+      }, err=>
+      {
+        this.spinner.hide();
+        this.toastr.error(err.message, err.status);
+      })
+    }
+
+   
+
+    getAllVacciniationCentre(){
       this.spinner.show();
       this.http.get('https://localhost:44352/api/VaccinationCenter/').subscribe((resp:any)=>
       {
@@ -148,7 +251,6 @@ export class HomeService {
       }
       )
     }
-
-
+    
   }
 
