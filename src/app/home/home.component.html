@@ -4,13 +4,13 @@
     <app-header></app-header>
     <div class="hero-v1">
 
-        <div class="container" *ngFor="let obj of ">
+        <div class="container" *ngFor="let obj of home.allHome">
             <div class="row align-items-center">
             <div class="col-lg-6 mr-auto text-center text-lg-left">
-                <span class="d-block subheading">Covid-19 Awareness</span>
-                <h1 class="heading mb-3">The Kinf=g Mlk Stay Safe. Stay Home.</h1>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel a, nulla incidunt eaque sit praesentium porro consectetur optio!</p>
-                <p class="mb-4"><a  class="btn btn-primary" >How to prevent</a></p>
+                <span class="d-block subheading">{{obj.littletitle1}}</span>
+                <h1 class="heading mb-3">{{obj.title1}}</h1>
+                <p class="mb-5">{{obj.descriptiontitle1}}</p>
+                <p class="mb-4"><a  class="btn btn-primary" >{{obj.textbutton}}</a></p>
     
     
     
@@ -24,12 +24,12 @@
             </div>
         </div>
         </div>
-    <div class="site-section stats">
+    <div class="site-section stats" *ngFor="let obj of home.allHome">
         <div class="container">
             <div class="row mb-3">
             <div class="col-lg-7 text-center mx-auto">
-                <h2 class="section-heading">Coronavirus Statistics</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, voluptate!</p>
+                <h2 class="section-heading">{{obj.statisticstitle}}</h2>
+                <p>{{obj.descriptionstatistics}}</p>
             </div>
             </div>
             <div class="row"> 
@@ -39,7 +39,7 @@
                     <span class="flaticon-virus"></span>
                 </span>
                 <strong class="d-block number">14,112,077</strong>
-                <span class="label">Active Cases</span>
+                <span class="label">{{obj.desc1statistics}}</span>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -48,7 +48,7 @@
                     <span class="flaticon-virus"></span>
                 </span>
                 <strong class="d-block number">595,685</strong>
-                <span class="label">Deaths</span>
+                <span class="label">{{obj.desc2statistics}}</span>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -57,7 +57,7 @@
                     <span class="flaticon-virus"></span>
                 </span>
                 <strong class="d-block number">8,397,665</strong>
-                <span class="label">Recovered Cases</span>
+                <span class="label">{{obj.desc3statistics}}</span>
                 </div>
             </div>
             </div>
@@ -328,12 +328,12 @@
         </div>
     -->
     
-        <div class="site-section">
+        <div class="site-section" *ngFor="let obj of home.allHome">
         <div class="container">
             <div class="row mb-5">
             <div class="col-lg-7 mx-auto text-center">
                 <h2 class="mb-4 section-heading">News &amp; Articles</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex officia quas, modi sit eligendi numquam!</p>
+                {{obj.newstitle}}
             </div>
             </div>
     
@@ -354,7 +354,7 @@
                     <span>3 Comments</span>
                     </a>
                 </div>
-                <h3><a href="#">How Coronavirus Very Contigous</a></h3>
+                <h3><a href="#">{{obj.newsdesc1}}</a></h3>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -373,7 +373,7 @@
                     <span>3 Comments</span>
                     </a>
                 </div>
-                <h3><a href="#">How Coronavirus Very Contigous</a></h3>
+                <h3><a href="#">{{obj.newsdesc2}}</a></h3>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -392,7 +392,7 @@
                     <span>3 Comments</span>
                     </a>
                 </div>
-                <h3><a href="#">How Coronavirus Very Contigous</a></h3>
+                <h3><a href="#">{{obj.newsdesc3}}</a></h3>
                 </div>
             </div>
             </div>
