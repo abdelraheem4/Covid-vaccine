@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { VaccinesService } from 'src/app/Services/vaccines.service';
 import { CreatevaccineComponent } from '../createvaccine/createvaccine.component';
@@ -13,12 +14,47 @@ export class ManagevaccinesComponent implements OnInit {
 
 
   constructor(private route:Router,public vaccines:VaccinesService ,private dialog: MatDialog) { }
+@ViewChild('callUpdateDailog') callUpdateDailog!:TemplateRef<any>
+@ViewChild('callDelteDailog') callDelteDailog!:TemplateRef<any>
+  updateForm:FormGroup = new FormGroup ({
+    vaccineid: new FormControl(),
 
+    vaccinename:new FormControl('',Validators.required),
+    vaccinedoses:new FormControl('',Validators.required),
+    vaccineexp:new FormControl('',Validators.required)
+
+  })
   ngOnInit(): void {
     this.vaccines.getall();
   }
   opendialog(){
     this.dialog.open(CreatevaccineComponent)
   }
+  
+  P_data:any={};
+  openUpdateDailog(obj:any){
+    this.P_data={
+      vaccineid:obj.vaccineid,
+      vaccinename:obj.vaccinename,
+      vaccinedoses:obj.vaccinedoses,
+      vaccineexp:obj.vaccineexp
+    }
+    this.updateForm.controls['vaccineid'].setValue(this.P_data.vaccineid);
+    this.dialog.open(this.callUpdateDailog);
+  }
+  saveData(){
+    this.vaccines.UpdateVaccine(this.updateForm.value);
 
+}
+openDelteDailog(id:number){
+  const dialogRef = this.dialog.open(this.callDelteDailog);
+  dialogRef.afterClosed().subscribe((res)=>{
+    if(res != undefined){
+      if(res == 'yes')
+      this.vaccines.deletevaccine(id);
+      else
+      console.log('not delted');
+    }
+})
+}
 }

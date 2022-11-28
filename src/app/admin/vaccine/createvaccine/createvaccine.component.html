@@ -3,26 +3,26 @@
    <form class="example-form" [formGroup]="createForm" >
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>vaccine Name</mat-label>
-      <input type="text" matInput formControlName="vaccines_name">
-      <mat-error *ngIf="createForm.controls['vaccines_name'].hasError('required')">
-        vaccines_name is <strong>required</strong>
+      <input type="text" matInput formControlName="vaccinename">
+      <mat-error *ngIf="createForm.controls['vaccinename'].hasError('required')">
+        vaccinename is <strong>required</strong>
       </mat-error>
     </mat-form-field> 
 
 <br>
 <mat-form-field class="example-full-width" appearance="fill">
   <mat-label>vaccine Doses</mat-label>
-  <input type="text" matInput formControlName="vaccine_doses">
-  <mat-error *ngIf="createForm.controls['vaccine_doses'].hasError('required')">
-    vaccine_doses is <strong>required</strong>
+  <input type="number" matInput formControlName="vaccinedoses">
+  <mat-error *ngIf="createForm.controls['vaccinedoses'].hasError('required')">
+    vaccinedoses is <strong>required</strong>
   </mat-error>
 </mat-form-field>
       <br>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>vaccine EXP</mat-label>
-        <input type="text" matInput formControlName="vaccine_sexp">
-        <mat-error *ngIf="createForm.controls['vaccine_sexp'].hasError('required')">
-          vaccine_sexp is <strong>required</strong>
+        <input type="date" matInput formControlName="vaccineexp">
+        <mat-error *ngIf="createForm.controls['vaccineexp'].hasError('required')">
+          vaccineexp is <strong>required</strong>
         </mat-error>
       </mat-form-field>
       <br>

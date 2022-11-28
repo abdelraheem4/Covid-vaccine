@@ -58,7 +58,7 @@ export class HomeService {
    }
    deleteTestmonial(id:number){
      this.spinner.show();
-     this.http.delete('https://localhost:44352/api/testmonial/Delete/' + id).subscribe((resp)=>
+     this.http.delete('https://localhost:44352/api/testmonial/Delete' + id).subscribe((resp)=>
      {
        this.spinner.hide();
        this.toastr.success('Deleted');

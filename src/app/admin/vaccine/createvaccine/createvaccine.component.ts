@@ -12,9 +12,9 @@ export class CreatevaccineComponent implements OnInit {
 
   constructor(private home:VaccinesService) { }
   createForm:FormGroup = new FormGroup ({
-    vaccines_name:new FormControl('',Validators.required),
-    vaccine_doses:new FormControl('',Validators.required),
-    vaccine_sexp:new FormControl('',Validators.required)
+    vaccinename:new FormControl('',Validators.required),
+    vaccinedoses:new FormControl('',Validators.required),
+    vaccineexp:new FormControl('',Validators.required)
 
   })
   ngOnInit(): void {

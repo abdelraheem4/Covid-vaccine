@@ -31,13 +31,55 @@
             {{obj.vaccineexp}}        </div>
         <div class="cell" data-title="Location">
             {{obj.vaccineid}}        </div>
+            <button (click)="openUpdateDailog(obj)">update</button>
+            <button (click)="openDelteDailog(obj.vaccineid)">delete</button>
+
       </div>
-
-   
-      
- 
-      
-  
-      
     </div>
+<ng-template #callUpdateDailog>
+  <h2 mat-dialog-title>Add vaccine</h2>
+  <mat-dialog-content class="mat-typography">
+     <form class="example-form" [formGroup]="updateForm" >
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>vaccine Name</mat-label>
+        <input type="text" matInput formControlName="vaccinename"
+        [(ngModel)]="P_data.vaccinename">
+        <mat-error *ngIf="updateForm.controls['vaccinename'].hasError('required')">
+          vaccinename is <strong>required</strong>
+        </mat-error>
+      </mat-form-field> 
+  
+  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>vaccine Doses</mat-label>
+    <input type="number" matInput formControlName="vaccinedoses"
+    [(ngModel)]="P_data.vaccinedoses">
+    <mat-error *ngIf="updateForm.controls['vaccinedoses'].hasError('required')">
+      vaccinedoses is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>vaccine EXP</mat-label>
+          <input type="date" matInput formControlName="vaccineexp"
+          [(ngModel)]="P_data.vaccineexp">
+          <mat-error *ngIf="updateForm.controls['vaccineexp'].hasError('required')">
+            vaccineexp is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+      </form>
+  </mat-dialog-content>
+  <mat-dialog-actions >
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial  (click)="saveData()">Save</button>
+  </mat-dialog-actions>
+</ng-template>
 
+<ng-template #callDelteDailog>
+<h2>Are You Sure ></h2>
+<button mat-dialog-close="yes">YES</button>
+<button mat-dialog-close="cancel">CANCEL</button>
+
+
+</ng-template>
