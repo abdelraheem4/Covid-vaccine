@@ -26,14 +26,17 @@
       </thead>
       <tbody>
         <tr *ngFor="let obj of home.allHome">
-            <th scope="col">{{obj.imagelogo}}</th><th scope="col">{{obj.littletitle1}}</th>
+            <th scope="col"><img src="../../../assets/images/{{obj.imagelogo}}" alt=""> </th><th scope="col">{{obj.littletitle1}}</th>
             <td scope="col">{{obj.title1}}</td>
             <th scope="col">{{obj.descriptiontitle1}}</th><th scope="col">{{obj.imagetitle1}}</th>
-            <th scope="col">{{obj.textbutton}}</th><th scope="col">{{obj.statisticstitle}}</th>
+            <th scope="col">{{obj.textbutton}}</th>
+            <th scope="col"><img src="../../../assets/images/{{obj.statisticstitle}}"></th>
             <th scope="col">{{obj.descriptionstatistics}}</th><th scope="col">{{obj.desc1statistics}}</th>
             <th scope="col">{{obj.desc2statistics}}</th><th scope="col">{{obj.desc3statistics}}</th>
-            <th scope="col">{{obj.newstitle}}</th><th scope="col">{{obj.newsimage1}}</th>
-            <th scope="col">{{obj.newsimage2}}</th><th scope="col">{{obj.newsimage3}}</th>
+            <th scope="col">{{obj.newstitle}}</th>
+            <th scope="col"><img src="../../../assets/images/{{obj.newsimage1}}"></th>
+            <th scope="col"><img src="../../../assets/images/{{obj.newsimage2}}"></th>
+            <th scope="col"><img src="../../../assets/images/{{obj.newsimage3}}"></th>
             <th scope="col">{{obj.newsdesc1}}</th> <th scope="col">{{obj.newsdesc2}}</th>
             <th scope="col">{{obj.newsdesc3}}</th>
           <td>
@@ -50,12 +53,11 @@
       <mat-dialog-content class="mat-typography">
         <form [formGroup] = "createform">
           <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-              <mat-form-field class="example-full-width" >
                 <mat-label>imagelogo</mat-label>
-              <input type="file" #file  formControlName="imageLogo" (change)="uploadimagelogo(file.files)" placeholder="imagelogo"/>  
-          </mat-form-field>
+              <input type="file" #file  (change)="uploadimagelogo(file.files)" placeholder="imagelogo"/>  
           </div>
-          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <div class="input_field">
+             <span><i aria-hidden="true" class="fa fa-lock"></i></span>
             <mat-form-field class="example-full-width" >
               <mat-label>littletitle1</mat-label>
             <input type="text" matInput formControlName="littleTitle1"  placeholder="littletitle1"/>
@@ -67,8 +69,11 @@
         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
             <mat-form-field class="example-full-width" >
               <mat-label>title1</mat-label>
-            <input type="text"  formControlName="Title1" placeholder="title1"/>
-        </mat-form-field>
+            <input type="text" matInput formControlName="Title1" placeholder="title1"/>
+            <mat-error *ngIf="createform.controls['Title1'].hasError('required')">
+              Title1 is <strong>required</strong>
+            </mat-error>  
+          </mat-form-field>
         </div>
         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
             <mat-form-field class="example-full-width" >
@@ -80,10 +85,8 @@
         </mat-form-field>
         </div>
         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-            <mat-form-field class="example-full-width" >
               <mat-label>imagetitle1</mat-label>
-            <input type="file" #file  formControlName="imageTitle1" (change)="uploadimagetitle1(file.files)" placeholder="imagelogo"/>  
-        </mat-form-field>
+            <input type="file" #file  (change)="uploadimagetitle1(file.files)" placeholder="imagelogo"/>  
         </div>
         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
             <mat-form-field class="example-full-width" >
@@ -149,23 +152,17 @@
         </mat-form-field>
         </div>
         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-            <mat-form-field class="example-full-width" >
               <mat-label>newsImage1</mat-label>
-            <input type="file" #file formControlName="newsImage1" (change)="uploadnewsImage1(file.files)" placeholder="newsImage1"/>  
-        </mat-form-field>
+            <input type="file" #file  (change)="uploadnewsImage1(file.files)" placeholder="newsImage1"/>  
         </div>
         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-            <mat-form-field class="example-full-width" >
               <mat-label>newsImage2</mat-label>
-            <input type="file" #file formControlName="newsImage2" (change)="uploadnewsImage2(file.files)" placeholder="newsImage2"/>   
-        </mat-form-field>
+            <input type="file" #file  (change)="uploadnewsImage2(file.files)" placeholder="newsImage2"/>   
         </div>
         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-            <mat-form-field class="example-full-width" >
               <mat-label>newsImage3</mat-label>
-            <input type="file" #file formControlName="newsImage3" (change)="uploadnewsImage3(file.files)" placeholder="newsImage3"/>
+            <input type="file" #file  (change)="uploadnewsImage3(file.files)" placeholder="newsImage3"/>
          
-        </mat-form-field>
         </div>
         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
             <mat-form-field class="example-full-width" >
@@ -213,17 +210,15 @@
           
 
           <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-            <mat-form-field class="example-full-width" >
+          
               <mat-label>imagelogo</mat-label>
-            <input type="file" #file formControlName="imagelogo" (change)="uploadimagelogo(file.files)" [(ngModel)]="p_data.imagelogo" placeholder="imagelogo"/>
-              
-        </mat-form-field>
-        </div>
+            <input type="file" #file (change)="uploadimagelogo(file.files)" [(ngModel)]="p_data.imagelogo" placeholder="imagelogo"/>
+            </div>
         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
           <mat-form-field class="example-full-width" >
             <mat-label>littletitle1</mat-label>
           <input type="text" matInput formControlName="littletitle1" [(ngModel)]="p_data.littletitle1"  placeholder="littletitle1"/>
-            <mat-error *ngIf=" updateform.controls['littletitle1'].hasError('required')">
+            <mat-error *ngIf="updateform.controls['littletitle1'].hasError('required')">
               littletitle1 is <strong>required</strong>
             </mat-error>    
       </mat-form-field>
@@ -233,7 +228,7 @@
             <mat-label>title1</mat-label>
           <input type="text"  matInput formControlName="title1" [(ngModel)]="p_data.title1" placeholder="title1"/>
             <mat-error *ngIf=" updateform.controls['title1'].hasError('required')">
-              Imagetitle1Logo is <strong>required</strong>
+              title1 is <strong>required</strong>
             </mat-error>    
       </mat-form-field>
       </div>
@@ -247,11 +242,8 @@
       </mat-form-field>
       </div>
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-          <mat-form-field class="example-full-width" >
             <mat-label>imagetitle1</mat-label>
-          <input type="file" #file  formControlName="imagetitle1" [(ngModel)]="p_data.imagetitle1" (change)="uploadimagetitle1(file.files)" placeholder="imagelogo"/>
-             
-      </mat-form-field>
+          <input type="file" #file   [(ngModel)]="p_data.imagetitle1" (change)="uploadimagetitle1(file.files)" placeholder="imagelogo"/>
       </div>
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
           <mat-form-field class="example-full-width" >
@@ -274,8 +266,8 @@
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
           <mat-form-field class="example-full-width" >
             <mat-label>descriptionStatistics</mat-label>
-          <input type="text" matInput formControlName="descriptionStatistics" [(ngModel)]="p_data.descriptionstatistics"  placeholder="descriptionStatistics"/>
-            <mat-error *ngIf=" updateform.controls['descriptionStatistics'].hasError('required')">
+          <input type="text" matInput formControlName="descriptionstatistics" [(ngModel)]="p_data.descriptionstatistics"  placeholder="descriptionStatistics"/>
+            <mat-error *ngIf=" updateform.controls['descriptionstatistics'].hasError('required')">
               descriptionStatistics is <strong>required</strong>
             </mat-error>    
       </mat-form-field>
@@ -283,8 +275,8 @@
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
           <mat-form-field class="example-full-width" >
             <mat-label>desc1Statistics</mat-label>
-          <input type="text"  matInput formControlName="desc1Statistics" [(ngModel)]="p_data.desc1statistics"  placeholder="desc1Statistics"/>
-            <mat-error *ngIf=" updateform.controls['desc1Statistics'].hasError('required')">
+          <input type="text"  matInput formControlName="desc1statistics" [(ngModel)]="p_data.desc1statistics"  placeholder="desc1Statistics"/>
+            <mat-error *ngIf=" updateform.controls['desc1statistics'].hasError('required')">
               desc1Statistics is <strong>required</strong>
             </mat-error>    
       </mat-form-field>
@@ -292,8 +284,8 @@
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
           <mat-form-field class="example-full-width" >
             <mat-label>desc2Statistics</mat-label>
-          <input type="text"  matInput formControlName="desc2Statistics" [(ngModel)]="p_data.desc2statistics" placeholder="desc2Statistics"/>
-            <mat-error *ngIf=" updateform.controls['desc2Statistics'].hasError('required')">
+          <input type="text"  matInput formControlName="desc2statistics" [(ngModel)]="p_data.desc2statistics" placeholder="desc2Statistics"/>
+            <mat-error *ngIf=" updateform.controls['desc2statistics'].hasError('required')">
               desc2Statistics is <strong>required</strong>
             </mat-error>    
       </mat-form-field>
@@ -301,8 +293,8 @@
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
           <mat-form-field class="example-full-width" >
             <mat-label>desc3Statistics</mat-label>
-          <input type="text"  matInput formControlName="desc3Statistics" [(ngModel)]="p_data.desc3statistics" placeholder="desc3Statistics"/>
-            <mat-error *ngIf=" updateform.controls['desc3Statistics'].hasError('required')">
+          <input type="text"  matInput formControlName="desc3statistics" [(ngModel)]="p_data.desc3statistics" placeholder="desc3Statistics"/>
+            <mat-error *ngIf=" updateform.controls['desc3statistics'].hasError('required')">
               desc3Statistics is <strong>required</strong>
             </mat-error>    
       </mat-form-field>
@@ -310,38 +302,26 @@
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
           <mat-form-field class="example-full-width" >
             <mat-label>newsTitle</mat-label>
-          <input type="text"  matInput formControlName="newsTitle" [(ngModel)]="p_data.newstitle" placeholder="newsTitle"/>
-            <mat-error *ngIf=" updateform.controls['newsTitle'].hasError('required')">
+          <input type="text"  matInput formControlName="newstitle" [(ngModel)]="p_data.newstitle" placeholder="newsTitle"/>
+            <mat-error *ngIf=" updateform.controls['newstitle'].hasError('required')">
               newsTitle is <strong>required</strong>
             </mat-error>    
       </mat-form-field>
       </div>
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-          <mat-form-field class="example-full-width" >
             <mat-label>newsImage1</mat-label>
-          <input type="file" #file matInput formControlName="newsImage1" [(ngModel)]="p_data.newsimage1" (change)="uploadnewsImage1(file.files)" placeholder="newsImage1"/>
-            <mat-error *ngIf=" updateform.controls['newsImage1'].hasError('required')">
-              newsImage1 is <strong>required</strong>
-            </mat-error>    
-      </mat-form-field>
+          <input type="file" #file  [(ngModel)]="p_data.newsimage1" (change)="uploadnewsImage1(file.files)" placeholder="newsImage1"/>
       </div>
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-          <mat-form-field class="example-full-width" >
+        
             <mat-label>newsImage2</mat-label>
-          <input type="file" #file matInput formControlName="newsImage2" [(ngModel)]="p_data.newsimage2" (change)="uploadnewsImage2(file.files)" placeholder="newsImage2"/>
-            <mat-error *ngIf=" updateform.controls['newsImage2'].hasError('required')">
-              newsImage2 is <strong>required</strong>
-            </mat-error>    
-      </mat-form-field>
+          <input type="file" #file   [(ngModel)]="p_data.newsimage2" (change)="uploadnewsImage2(file.files)" placeholder="newsImage2"/>
+               
       </div>
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-          <mat-form-field class="example-full-width" >
+          
             <mat-label>newsImage3</mat-label>
-          <input type="file" #file matInput formControlName="newsImage3" [(ngModel)]="p_data.newsimage3" (change)="uploadnewsImage3(file.files)" placeholder="newsImage3"/>
-            <mat-error *ngIf=" updateform.controls['newsImage3'].hasError('required')">
-              newsImage3 is <strong>required</strong>
-            </mat-error>    
-      </mat-form-field>
+          <input type="file" #file  [(ngModel)]="p_data.newsimage3" (change)="uploadnewsImage3(file.files)" placeholder="newsImage3"/>       
       </div>
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
           <mat-form-field class="example-full-width" >
