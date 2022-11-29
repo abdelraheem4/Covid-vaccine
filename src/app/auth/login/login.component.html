@@ -1,0 +1,55 @@
+
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<form class="login" >
+				<mat-form-field >
+ 					<input id="email"  type="email" name="email"  matInput    [formControl]="email" class="login__input" placeholder="Email">
+					<mat-error *ngIf="email.hasError('email') ">
+						Please Enter a valid Email
+					  </mat-error>
+					  <mat-error *ngIf="email.hasError('required')" >
+					   Email is <strong>Required</strong>
+					  </mat-error>
+				 
+		    	</mat-form-field >
+
+
+			<mat-form-field >
+ 					<input id="password" type="password" name="password" matInput [formControl]="password"  class="login__input" placeholder="Password">
+					<br> 
+					<mat-error *ngIf="password.hasError('minlength') ">
+						Please Enter a strong Password
+					  </mat-error>
+					  <mat-error *ngIf="password.hasError('required')" >
+						Password is <strong>Required</strong>
+					  </mat-error>
+				 
+			</mat-form-field>
+
+            <br> <br>
+				<button style="background-color: rgb(62, 31, 91);" class="button login__submit"  (click)="submit()" 
+                 [disabled]="!email.valid || !password.valid"  class="btn btn-primary ">
+					<span class="button__text">  Login  </span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form >
+
+            <br> <br> <br>
+			<div class="social-login">
+				<h3>log in via</h3>
+				<div class="social-icons">
+					<a href="#" class="social-login__icon fab fa-instagram"></a>
+					<a href="#" class="social-login__icon fab fa-facebook"></a>
+					<a href="#" class="social-login__icon fab fa-twitter"></a>
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
