@@ -40,13 +40,8 @@ const routes: Routes = [
   {
     path:'manageHome',
     component:ManageHomeComponent
-<<<<<<< HEAD
     
   },
- 
-=======
-  },
->>>>>>> 7012ec42b7115cea8cbfeabbfb7fbe4b97265b99
   
 ];
 
