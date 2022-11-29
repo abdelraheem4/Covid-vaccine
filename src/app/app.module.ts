@@ -11,11 +11,13 @@ import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toas
 import { NgxSpinnerModule } from "ngx-spinner";
 import{HttpClientModule}from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NewDashComponent } from './admin/new-dash/new-dash.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PreventionComponent,
     SymptomsComponent,
     AboutComponent,
+<<<<<<< HEAD
     
     
+=======
+    NewDashComponent,
+    DashboardComponent,
+
+>>>>>>> de509cf8fe6f4b470aa74c22874620e7f222c9e1
   ],
   imports: [
     BrowserModule,
@@ -35,15 +43,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ToastrModule.forRoot(),
     NgxSpinnerModule,
     HttpClientModule,
-    SharedModule,
+    SharedModule, 
+    MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatInputModule,
     MatDialogModule,
     BrowserAnimationsModule
-
-
-    
 ],
   providers: [],
   bootstrap: [AppComponent]

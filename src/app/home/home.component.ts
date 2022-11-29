@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from "ngx-spinner";
+import { HomeService } from '../Services/home.service';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +10,10 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private toastr:ToastrService) { }
+  constructor(private toastr:ToastrService,public home:HomeService) { }
 
   ngOnInit(): void {
-    //this.toastr.success('success');
+    this.home.getAllHome();
   }
-  goTo(){
-    this.toastr.success('success');
-  }
+  
 }

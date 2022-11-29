@@ -25,4 +25,42 @@ export class VaccinesService {
     )
 
   }
+  createVaccine(body:any){
+this.spinner
+this.http.post('https://localhost:5001/api/vaccines',body).subscribe((resp)=>{
+  this.spinner.hide();
+  this.toastr.success('saved successfully');
+},err=>{
+  this.spinner.hide();
+  this.toastr.error(err.message, err.status);
 }
+)
+  }
+
+  UpdateVaccine(body:any){
+    this.spinner
+    this.http.put('https://localhost:5001/api/vaccines',body).subscribe((resp)=>{
+      this.spinner.hide();
+      this.toastr.success('Update successfully');
+    },err=>{
+      this.spinner.hide();
+      this.toastr.error(err.message, err.status);
+    }
+    )
+      }
+
+      deletevaccine(id:number){
+        this.spinner.show();
+        this.http.delete('https://localhost:5001/api/vaccines/' + id).subscribe((resp)=>{
+          this.spinner.hide();
+          this.toastr.success('deletd successfully');
+        },err=>{
+          this.spinner.hide();
+          this.toastr.error(err.message, err.status);
+        
+      
+    })
+  }
+}
+  
+
