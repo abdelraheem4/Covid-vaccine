@@ -40,7 +40,10 @@ const routes: Routes = [
   {
     path:'manageHome',
     component:ManageHomeComponent
-  }
+    
+  },
+ 
+  
 ];
 
 @NgModule({

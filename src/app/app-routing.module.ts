@@ -5,7 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { PreventionComponent } from './prevention/prevention.component';
 import { SymptomsComponent } from './symptoms/symptoms.component';
 import { AdminModule } from './admin/admin.module';
-
+import { NewDashComponent } from './admin/new-dash/new-dash.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [ { 
@@ -28,6 +29,13 @@ const routes: Routes = [ {
   path:'admin',
   loadChildren:()=>AdminModule
 },
+{
+  path:'dash',
+  component:DashboardComponent
+},
+
+
+
 // {
 //   path:'security',
 //   loadChildren:()=>AuthModule
