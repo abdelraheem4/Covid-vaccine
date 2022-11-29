@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class HomeService {
-  
+ 
   display_image:any;
   allTestmonial:any[] = [];
   allVacciniationCentre:any[] = [];

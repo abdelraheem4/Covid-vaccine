@@ -23,7 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     PreventionComponent,
     SymptomsComponent,
-    AboutComponent
+    AboutComponent,
+    
+    
   ],
   imports: [
     BrowserModule,

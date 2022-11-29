@@ -1,22 +1,19 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { HomeService } from 'src/app/Services/home.service';
 import { UserService } from 'src/app/Services/user.service';
 import { CreateUserComponent } from '../create-user/create-user.component';
 
 @Component({
-  selector: 'app-manage-user',
-  templateUrl: './manage-user.component.html',
-  styleUrls: ['./manage-user.component.css']
+  selector: 'app-doctor',
+  templateUrl: './doctor.component.html',
+  styleUrls: ['./doctor.component.css']
 })
-export class ManageUserComponent implements OnInit {
-
-  constructor(private router:Router,public user:UserService,private dialog:MatDialog) { }
+export class DoctorComponent implements OnInit {
   @ViewChild('callUpdateDailog') callUpdateDailog!:TemplateRef<any> 
   @ViewChild('callDeleteDailog') callDeleteDailog!:TemplateRef<any> 
-
+  constructor(private router:Router,public user:UserService,private dialog:MatDialog) { }
 
 
   updateForm:FormGroup= new FormGroup({
@@ -31,10 +28,8 @@ export class ManageUserComponent implements OnInit {
     password:new FormControl(),
     roleid:new FormControl()
   })
-
   ngOnInit(): void {
-    this.user.getALLUser();
-   
+    this.user.getALldoctor();
   }
 
 
@@ -42,6 +37,9 @@ export class ManageUserComponent implements OnInit {
   {
   this.dialog.open(CreateUserComponent)
   }
+
+
+
 
   p_data :any={};
   openUpdateDailog(obj:any)
@@ -101,5 +99,6 @@ export class ManageUserComponent implements OnInit {
       }
      })
   }
+
 
 }

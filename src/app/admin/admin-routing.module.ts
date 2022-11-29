@@ -5,6 +5,7 @@ import { ManagevaccinesComponent } from './vaccine/managevaccines/managevaccines
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TestmonialComponent } from './testmonial/testmonial.component';
 import { VaccinaiationCenterComponent } from './vaccinaiation-center/vaccinaiation-center.component';
+import { DoctorComponent } from './doctor/doctor.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
     path:'vaccinaiationcenter',
     component:VaccinaiationCenterComponent
   },
+  {
+    path:'doctor',
+    component:DoctorComponent
+  }
 ];
 
 @NgModule({

@@ -1,22 +1,19 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { HomeService } from 'src/app/Services/home.service';
 import { UserService } from 'src/app/Services/user.service';
-import { CreateUserComponent } from '../create-user/create-user.component';
 
 @Component({
-  selector: 'app-manage-user',
-  templateUrl: './manage-user.component.html',
-  styleUrls: ['./manage-user.component.css']
+  selector: 'app-manage-vaccine',
+  templateUrl: './manage-vaccine.component.html',
+  styleUrls: ['./manage-vaccine.component.css']
 })
-export class ManageUserComponent implements OnInit {
-
-  constructor(private router:Router,public user:UserService,private dialog:MatDialog) { }
+export class ManageVaccineComponent implements OnInit {
   @ViewChild('callUpdateDailog') callUpdateDailog!:TemplateRef<any> 
   @ViewChild('callDeleteDailog') callDeleteDailog!:TemplateRef<any> 
-
+  num:number=0;
+  constructor(private router:Router,public user:UserService,private dialog:MatDialog) { }
 
 
   updateForm:FormGroup= new FormGroup({
@@ -31,17 +28,10 @@ export class ManageUserComponent implements OnInit {
     password:new FormControl(),
     roleid:new FormControl()
   })
-
   ngOnInit(): void {
     this.user.getALLUser();
-   
   }
 
-
-  opendialog()
-  {
-  this.dialog.open(CreateUserComponent)
-  }
 
   p_data :any={};
   openUpdateDailog(obj:any)
@@ -62,10 +52,17 @@ export class ManageUserComponent implements OnInit {
 
   }
   this.updateForm.controls['userid'].setValue(this.p_data.userid);
+  this.updateForm.controls['fullname'].setValue(this.p_data.fullname);
+  this.updateForm.controls['username'].setValue(this.p_data.username);
+  this.updateForm.controls['phonenumber'].setValue(this.p_data.phonenumber);
+  this.updateForm.controls['age'].setValue(this.p_data.age);
+  this.updateForm.controls['email'].setValue(this.p_data.email);
+  this.updateForm.controls['roleid'].setValue(this.p_data.roleid);
+  this.updateForm.controls['password'].setValue(this.p_data.password);
+  this.updateForm.controls['image'].setValue(this.p_data.image);
+
   this.dialog.open(this.callUpdateDailog);
   }
-
-
 
 
   
@@ -73,17 +70,6 @@ export class ManageUserComponent implements OnInit {
   {
     debugger
     this.user.updateUser(this.updateForm.value);
-  }
-
- 
-  uploadfile(file:any)
-  {
-    if(file.length==0)
-    return;
-    let fileToUpload=<File>file[0]
-    const formdata =new FormData();
-    formdata.append('file',fileToUpload,fileToUpload.name);
-    this.user.uploadAttachment(formdata);
   }
 
   openDeleteDailog(id:number)
@@ -102,4 +88,11 @@ export class ManageUserComponent implements OnInit {
      })
   }
 
+  searchInput(ev:any){
+    this.num=ev.target.value;
+  }
+  Search(){
+    debugger
+    this.user.srarchByid(this.num);
+  }
 }

@@ -10,6 +10,8 @@ import { TestmonialComponent } from './testmonial/testmonial.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { CreatevaccineComponent } from './vaccine/createvaccine/createvaccine.component';
 import { ManagevaccinesComponent } from './vaccine/managevaccines/managevaccines.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { CreateDoctorComponent } from './create-doctor/create-doctor.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ ManageUserComponent,
     VaccinaiationCenterComponent,
     CreateUserComponent,
     CreatevaccineComponent,
-    ManagevaccinesComponent
+    ManagevaccinesComponent,
+    DoctorComponent,
+    CreateDoctorComponent
   ],
   imports: [
     CommonModule,

@@ -3,11 +3,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
-  selector: 'app-create-user',
-  templateUrl: './create-user.component.html',
-  styleUrls: ['./create-user.component.css']
+  selector: 'app-create-doctor',
+  templateUrl: './create-doctor.component.html',
+  styleUrls: ['./create-doctor.component.css']
 })
-export class CreateUserComponent implements OnInit {
+export class CreateDoctorComponent implements OnInit {
 
   constructor(private user:UserService) { }
   createForm:FormGroup= new FormGroup({
@@ -23,17 +23,18 @@ export class CreateUserComponent implements OnInit {
     Numberofvaccines:new FormControl()
   
   })
-  ngOnInit(): void 
-  {
+  ngOnInit(): void {
   }
+
 
   savedata()
   {
     debugger
-    this.user.createUser(this.createForm.value)
+   // this.user.createUser(this.createForm.value)
 
   }
 
+  
   uploadfile(file:any)
   {
     if(file.length==0)
@@ -43,7 +44,4 @@ export class CreateUserComponent implements OnInit {
     formdata.append('file',fileToUpload,fileToUpload.name);
     this.user.uploadAttachment(formdata);
   }
-
-  }
-
-
+}

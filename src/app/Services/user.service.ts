@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UserService {
   User:any=[{}];
+doctor:any=[{}];
   display_image:any;
   constructor(private http:HttpClient,private spinner :NgxSpinnerService ,private toastr:ToastrService) { }
 
@@ -25,12 +26,32 @@ export class UserService {
     )
   }
 
+  getALldoctor(){
+    
+    this.spinner.show();
+    this.http.get('https://localhost:44352/api/UserAccount/doctro').subscribe((res)=>{
+      
+      this.doctor=res;
+      this.spinner.hide();
+      this.toastr.success('Data Retrieved!!');
+    },err=>{
+      this.spinner.hide();
+      this.toastr.error(err.message,err.status);
+    }
+    )
+
+  }
+
+
+
+
+
 
   createUser(body:any){
-    body.imageName=this.display_image;
+    body.image=this.display_image;
     this.spinner.show();
     debugger
-  this.http.post('https://localhost:44347/api/Course/',body).subscribe((resp)=>{
+  this.http.post('https://localhost:44352/api/UserAccount/',body).subscribe((resp)=>{
     this.spinner.hide();
         this.toastr.success('Created !!');
   },err=>{
@@ -38,7 +59,66 @@ export class UserService {
     this.toastr.error(err.message,err.status);
   })
   
-  
   }
+
+
+  
+uploadAttachment(file:FormData){
+  debugger
+  this.http.post('https://localhost:44352/api/UserAccount/uploadImage/',file).subscribe((resp:any)=>{
+    this.display_image=resp.image;
+  },err=>{
+    this.toastr.error('Can not Upload Image');
+    console.log(err);
+
+  })
+}
+
+updateUser(body:any){
+  debugger
+  body.imageName=this.display_image;
+
+  this.spinner.show();
+  debugger
+  this.http.put('https://localhost:44352/api/UserAccount',body).subscribe((resp)=>{
+    this.spinner.hide();
+    this.toastr.success('Updated Successfully !!');
+
+  },err=>{
+    this.spinner.hide();
+    this.toastr.error(err.message,err.status);
+  })
+}
+
+deleteUser(id:number)
+{
+  this.spinner.show();
+ this.http.delete('https://localhost:44352/api/UserAccount/Delete/'+id).subscribe((resp)=>{
+  this.spinner.hide();
+  this.toastr.success('Deleted Successfully !!');
+ },err=>{
+  this.spinner.hide();
+  this.toastr.error(err.message,err.status);
+ })
+}
+
+srarchByid(num:number)
+{
+  this.spinner.show();
+  debugger;
+  this.http.get('https://localhost:44352/api/UserAccount/GetById/'+ num).subscribe((res:any)=>{
+      
+      this.User=[res];
+      this.spinner.hide();
+      this.toastr.success('Successfully !!');
+    },err=>{
+      this.spinner.hide();
+      this.toastr.error(err.message,err.status);
+    }
+    )
+
+}
+
+
 
 }
