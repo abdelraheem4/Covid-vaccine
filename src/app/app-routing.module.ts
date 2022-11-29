@@ -1,15 +1,11 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
-<<<<<<< HEAD
 import { AdminModule } from './admin/admin.module';
 import { DoctorModule } from './doctor/doctor.module';
-=======
->>>>>>> de509cf8fe6f4b470aa74c22874620e7f222c9e1
 import { HomeComponent } from './home/home.component';
 import { PreventionComponent } from './prevention/prevention.component';
 import { SymptomsComponent } from './symptoms/symptoms.component';
-import { AdminModule } from './admin/admin.module';
 import { NewDashComponent } from './admin/new-dash/new-dash.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthModule } from './auth/auth.module';
@@ -35,17 +31,14 @@ const routes: Routes = [ {
   loadChildren:()=>AdminModule
 },
 {
-<<<<<<< HEAD
   path:'managedoctor',
   loadChildren:()=>DoctorModule
-}
+},
 
-
-=======
+{
   path:'dash',
   component:DashboardComponent
 },
->>>>>>> de509cf8fe6f4b470aa74c22874620e7f222c9e1
 
 
 

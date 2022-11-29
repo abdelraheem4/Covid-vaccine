@@ -26,14 +26,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PreventionComponent,
     SymptomsComponent,
     AboutComponent,
-<<<<<<< HEAD
-    
-    
-=======
     NewDashComponent,
     DashboardComponent,
 
->>>>>>> de509cf8fe6f4b470aa74c22874620e7f222c9e1
   ],
   imports: [
     BrowserModule,

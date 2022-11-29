@@ -5,11 +5,8 @@ import { ManagevaccinesComponent } from './managevaccines/managevaccines.compone
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TestmonialComponent } from './testmonial/testmonial.component';
 import { VaccinaiationCenterComponent } from './vaccinaiation-center/vaccinaiation-center.component';
-<<<<<<< HEAD
 import { DoctorComponent } from './doctor/doctor.component';
-=======
 import { ManageHomeComponent } from './manage-home/manage-home.component';
->>>>>>> de509cf8fe6f4b470aa74c22874620e7f222c9e1
 
 const routes: Routes = [
   {
@@ -42,17 +39,15 @@ const routes: Routes = [
     component:VaccinaiationCenterComponent
   },
   {
-<<<<<<< HEAD
     path:'doctor',
     component:DoctorComponent
-  }
-=======
+  },
+  {
     path:'manageHome',
     component:ManageHomeComponent
     
   },
   
->>>>>>> de509cf8fe6f4b470aa74c22874620e7f222c9e1
 ];
 
 @NgModule({

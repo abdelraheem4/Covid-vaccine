@@ -13,15 +13,11 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
 import { VaccinaiationCenterComponent } from './vaccinaiation-center/vaccinaiation-center.component';
 import { TestmonialComponent } from './testmonial/testmonial.component';
 import { CreateUserComponent } from './create-user/create-user.component';
-<<<<<<< HEAD
-import { CreatevaccineComponent } from './vaccine/createvaccine/createvaccine.component';
-import { ManagevaccinesComponent } from './vaccine/managevaccines/managevaccines.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { CreateDoctorComponent } from './create-doctor/create-doctor.component';
-=======
-import { ManagevaccinesComponent } from './managevaccines/managevaccines.component';
 import { ManageHomeComponent } from './manage-home/manage-home.component';
->>>>>>> de509cf8fe6f4b470aa74c22874620e7f222c9e1
+import { ManagevaccinesComponent } from './managevaccines/managevaccines.component';
+import { ManageVaccineComponent } from '../doctor/manage-vaccine/manage-vaccine.component';
 
 
 @NgModule({
@@ -34,15 +30,10 @@ ManageUserComponent,
     VaccinaiationCenterComponent,
     VaccinaiationCenterComponent,
     CreateUserComponent,
-<<<<<<< HEAD
-    CreatevaccineComponent,
-    ManagevaccinesComponent,
     DoctorComponent,
-    CreateDoctorComponent
-=======
-    ManagevaccinesComponent,
+    CreateDoctorComponent,
     ManageHomeComponent,
->>>>>>> de509cf8fe6f4b470aa74c22874620e7f222c9e1
+    ManagevaccinesComponent
   ],
   imports: [
     CommonModule,
