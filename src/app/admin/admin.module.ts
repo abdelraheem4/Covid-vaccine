@@ -13,8 +13,7 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
 import { VaccinaiationCenterComponent } from './vaccinaiation-center/vaccinaiation-center.component';
 import { TestmonialComponent } from './testmonial/testmonial.component';
 import { CreateUserComponent } from './create-user/create-user.component';
-import { CreatevaccineComponent } from './vaccine/createvaccine/createvaccine.component';
-import { ManagevaccinesComponent } from './vaccine/managevaccines/managevaccines.component';
+import { ManagevaccinesComponent } from './managevaccines/managevaccines.component';
 import { ManageHomeComponent } from './manage-home/manage-home.component';
 
 
@@ -28,7 +27,6 @@ ManageUserComponent,
     VaccinaiationCenterComponent,
     VaccinaiationCenterComponent,
     CreateUserComponent,
-    CreatevaccineComponent,
     ManagevaccinesComponent,
     ManageHomeComponent,
   ],

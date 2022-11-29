@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ManageUserComponent } from './manage-user/manage-user.component';
-import { ManagevaccinesComponent } from './vaccine/managevaccines/managevaccines.component';
+import { ManagevaccinesComponent } from './managevaccines/managevaccines.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TestmonialComponent } from './testmonial/testmonial.component';
 import { VaccinaiationCenterComponent } from './vaccinaiation-center/vaccinaiation-center.component';

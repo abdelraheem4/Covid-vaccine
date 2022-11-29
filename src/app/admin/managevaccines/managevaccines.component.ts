@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { VaccinesService } from 'src/app/Services/vaccines.service';
-import { CreatevaccineComponent } from '../createvaccine/createvaccine.component';
 
 @Component({
   selector: 'app-managevaccines',
@@ -16,9 +15,14 @@ export class ManagevaccinesComponent implements OnInit {
   constructor(private route:Router,public vaccines:VaccinesService ,private dialog: MatDialog) { }
 @ViewChild('callUpdateDailog') callUpdateDailog!:TemplateRef<any>
 @ViewChild('callDelteDailog') callDelteDailog!:TemplateRef<any>
+@ViewChild('callCreateDailog') callCreateDailog!:TemplateRef<any>
   updateForm:FormGroup = new FormGroup ({
     vaccineid: new FormControl(),
-
+    vaccinename:new FormControl('',Validators.required),
+    vaccinedoses:new FormControl('',Validators.required),
+    vaccineexp:new FormControl('',Validators.required)
+  })
+  createForm:FormGroup = new FormGroup ({
     vaccinename:new FormControl('',Validators.required),
     vaccinedoses:new FormControl('',Validators.required),
     vaccineexp:new FormControl('',Validators.required)
@@ -27,8 +31,8 @@ export class ManagevaccinesComponent implements OnInit {
   ngOnInit(): void {
     this.vaccines.getall();
   }
-  opendialog(){
-    this.dialog.open(CreatevaccineComponent)
+  openCreateDialog(){
+    this.dialog.open(this.callCreateDailog)
   }
   
   P_data:any={};
@@ -37,13 +41,17 @@ export class ManagevaccinesComponent implements OnInit {
       vaccineid:obj.vaccineid,
       vaccinename:obj.vaccinename,
       vaccinedoses:obj.vaccinedoses,
-      vaccineexp:obj.vaccineexp
-    }
+      vaccineexp:obj.vaccineexp}
     this.updateForm.controls['vaccineid'].setValue(this.P_data.vaccineid);
     this.dialog.open(this.callUpdateDailog);
   }
+
   saveData(){
     this.vaccines.UpdateVaccine(this.updateForm.value);
+
+}
+saveCREATEData(){
+  this.vaccines.createVaccine(this.createForm.value);
 
 }
 openDelteDailog(id:number){
