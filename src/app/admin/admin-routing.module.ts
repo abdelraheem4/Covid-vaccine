@@ -8,6 +8,7 @@ import { VaccinaiationCenterComponent } from './vaccinaiation-center/vaccinaiati
 import { DoctorComponent } from './doctor/doctor.component';
 import { ManageHomeComponent } from './manage-home/manage-home.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { TablesComponent } from './tables/tables.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,11 @@ const routes: Routes = [
   {
     path:'managereservation',
     component:ReservationComponent
+    
+  },
+  {
+    path:'tables',
+    component:TablesComponent
     
   },
   

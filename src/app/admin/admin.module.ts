@@ -19,6 +19,7 @@ import { ManageHomeComponent } from './manage-home/manage-home.component';
 import { ManagevaccinesComponent } from './managevaccines/managevaccines.component';
 import { ManageVaccineComponent } from '../doctor/manage-vaccine/manage-vaccine.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { TablesComponent } from './tables/tables.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ ManageUserComponent,
     CreateDoctorComponent,
     ManageHomeComponent,
     ManagevaccinesComponent,
-    ReservationComponent
+    ReservationComponent,
+    TablesComponent
   ],
   imports: [
     CommonModule,
