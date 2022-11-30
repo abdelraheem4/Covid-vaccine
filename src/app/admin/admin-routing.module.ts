@@ -7,6 +7,7 @@ import { TestmonialComponent } from './testmonial/testmonial.component';
 import { VaccinaiationCenterComponent } from './vaccinaiation-center/vaccinaiation-center.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { ManageHomeComponent } from './manage-home/manage-home.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,11 @@ const routes: Routes = [
   {
     path:'manageHome',
     component:ManageHomeComponent
+    
+  },
+  {
+    path:'managereservation',
+    component:ReservationComponent
     
   },
   
