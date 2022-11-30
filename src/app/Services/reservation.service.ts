@@ -12,7 +12,7 @@ export class ReservationService {
   constructor(private http:HttpClient,private spinner :NgxSpinnerService,private toastr:ToastrService) { }
   getall(){
     this.spinner.show();
-    this.http.get('https://localhost:5001/api/Reservation').subscribe((res)=>{
+    this.http.get('https://localhost:44352/api/Reservation').subscribe((res)=>{
       this.reservation=res;
       this.spinner.hide();
       this.toastr.success('Data Retrived successfully');
@@ -27,7 +27,7 @@ export class ReservationService {
   }
   createreservation(body:any){
 this.spinner
-this.http.post('https://localhost:5001/api/Reservation',body).subscribe((resp)=>{
+this.http.post('https://localhost:44352/api/Reservation',body).subscribe((resp)=>{
   this.spinner.hide();
   this.toastr.success('saved successfully');
 },err=>{
@@ -39,7 +39,7 @@ this.http.post('https://localhost:5001/api/Reservation',body).subscribe((resp)=>
 
   Updatereservation(body:any){
     this.spinner
-    this.http.put('https://localhost:5001/api/Reservation',body).subscribe((resp)=>{
+    this.http.put('https://localhost:44352/api/Reservation',body).subscribe((resp)=>{
       this.spinner.hide();
       this.toastr.success('Update successfully');
     },err=>{
@@ -51,7 +51,7 @@ this.http.post('https://localhost:5001/api/Reservation',body).subscribe((resp)=>
 
       deletereservation(id:number){
         this.spinner.show();
-        this.http.delete('https://localhost:5001/api/Reservation/' + id).subscribe((resp)=>{
+        this.http.delete('https://localhost:44352/api/Reservation/' + id).subscribe((resp)=>{
           this.spinner.hide();
           this.toastr.success('deletd successfully');
         },err=>{
