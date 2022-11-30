@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-register',
@@ -16,9 +18,13 @@ registerForm :FormGroup = new FormGroup({
   confirmPassword: new FormControl ('', [Validators.required , Validators.minLength(8)])
 })
 
-  constructor() { }
+  constructor(private route:Router,private spinner:NgxSpinnerService) { }
   submit()
   {
+    this.spinner.show();
+    setTimeout(()=>{
+      this.spinner.hide();
+    },3000);
     console.log(this.registerForm.value);
   }
   ngOnInit(): void {
@@ -30,7 +36,7 @@ registerForm :FormGroup = new FormGroup({
     else
        this.registerForm.controls['confirmPassword'].setErrors({mismatch:true})
   }
-  // goToLogin(){
-  //   this.route.navigate(['security/login'])
-  // }
+  goTologin(){
+    this.route.navigate(['security/login'])
+  }
 }
