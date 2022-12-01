@@ -1,7 +1,7 @@
 <app-sidebar></app-sidebar>
 
-
-    <div  class="table">
+<table tyle="display:inline-block ;">
+    <div    class="table">
 
       <div class="row header">
         <div class="cell">
@@ -16,7 +16,7 @@
         <div class="cell">
           ID
         </div>
-        <button (click)="openCreateDialog()">Creat new</button>
+        <button (click)="openCreateDialog()">Create</button>
 
       </div>
       
@@ -36,6 +36,7 @@
 
       </div>
     </div>
+  </table>
 <ng-template #callUpdateDailog>
   <h2 mat-dialog-title>Add vaccine</h2>
   <mat-dialog-content class="mat-typography">

@@ -6,14 +6,14 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable({
   providedIn: 'root'
 })
-export class VaccinesService {
-  Vaccine:any=[{}];
+export class ReservationService {
+  reservation:any=[{}];
 
   constructor(private http:HttpClient,private spinner :NgxSpinnerService,private toastr:ToastrService) { }
   getall(){
     this.spinner.show();
-    this.http.get('https://localhost:44352/api/Vaccines').subscribe((res)=>{
-      this.Vaccine=res;
+    this.http.get('https://localhost:44352/api/Reservation').subscribe((res)=>{
+      this.reservation=res;
       this.spinner.hide();
       this.toastr.success('Data Retrived successfully');
 
@@ -25,9 +25,9 @@ export class VaccinesService {
     )
 
   }
-  createVaccine(body:any){
+  createreservation(body:any){
 this.spinner
-this.http.post('https://localhost:44352/api/vaccines',body).subscribe((resp)=>{
+this.http.post('https://localhost:44352/api/Reservation',body).subscribe((resp)=>{
   this.spinner.hide();
   this.toastr.success('saved successfully');
 },err=>{
@@ -37,9 +37,9 @@ this.http.post('https://localhost:44352/api/vaccines',body).subscribe((resp)=>{
 )
   }
 
-  UpdateVaccine(body:any){
+  Updatereservation(body:any){
     this.spinner
-    this.http.put('https://localhost:44352/api/vaccines',body).subscribe((resp)=>{
+    this.http.put('https://localhost:44352/api/Reservation',body).subscribe((resp)=>{
       this.spinner.hide();
       this.toastr.success('Update successfully');
     },err=>{
@@ -49,9 +49,9 @@ this.http.post('https://localhost:44352/api/vaccines',body).subscribe((resp)=>{
     )
       }
 
-      deletevaccine(id:number){
+      deletereservation(id:number){
         this.spinner.show();
-        this.http.delete('https://localhost:44352/api/vaccines/' + id).subscribe((resp)=>{
+        this.http.delete('https://localhost:44352/api/Reservation/' + id).subscribe((resp)=>{
           this.spinner.hide();
           this.toastr.success('deletd successfully');
         },err=>{
