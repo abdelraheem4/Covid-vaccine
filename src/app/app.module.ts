@@ -16,8 +16,6 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NewDashComponent } from './admin/new-dash/new-dash.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +24,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PreventionComponent,
     SymptomsComponent,
     AboutComponent,
-    NewDashComponent,
-    DashboardComponent,
 
   ],
   imports: [

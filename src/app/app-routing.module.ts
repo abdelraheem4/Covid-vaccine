@@ -6,8 +6,6 @@ import { DoctorModule } from './doctor/doctor.module';
 import { HomeComponent } from './home/home.component';
 import { PreventionComponent } from './prevention/prevention.component';
 import { SymptomsComponent } from './symptoms/symptoms.component';
-import { NewDashComponent } from './admin/new-dash/new-dash.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthModule } from './auth/auth.module';
 
 const routes: Routes = [ { 
@@ -35,10 +33,7 @@ const routes: Routes = [ {
   loadChildren:()=>DoctorModule
 },
 
-{
-  path:'dash',
-  component:DashboardComponent
-},
+
 
 
 
