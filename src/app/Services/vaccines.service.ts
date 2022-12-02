@@ -61,6 +61,28 @@ this.http.post('https://localhost:44352/api/vaccines',body).subscribe((resp)=>{
       
     })
   }
+
+  SearchVaccin(name:string){
+    this.spinner.show();
+    debugger;
+
+    this.http.get('https://localhost:44352/api/vaccines/search/' + name).subscribe((resp:any)=>
+    {
+      this.Vaccine=resp;
+
+      this.spinner.hide();
+      this.toastr.success(' Successfully !!');
+
+    },err=>{
+      this.spinner.hide();
+      this.toastr.error(err.message, err.status);
+    })
+  }
+
+
+
+  
 }
+
   
 

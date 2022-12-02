@@ -16,6 +16,7 @@ export class ManagevaccinesComponent implements OnInit {
 @ViewChild('callUpdateDailog') callUpdateDailog!:TemplateRef<any>
 @ViewChild('callDelteDailog') callDelteDailog!:TemplateRef<any>
 @ViewChild('callCreateDailog') callCreateDailog!:TemplateRef<any>
+
   updateForm:FormGroup = new FormGroup ({
     vaccineid: new FormControl(),
     vaccinename:new FormControl('',Validators.required),
@@ -65,4 +66,15 @@ openDelteDailog(id:number){
     }
 })
 }
+
+name:any='';
+inputValue(ev:any){
+  this.name=ev.target.value;
+  console.log(ev.target.value);
+}
+search(){
+
+  this.vaccines.SearchVaccin(this.name);
+}
+
 }
