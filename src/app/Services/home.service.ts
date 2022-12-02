@@ -12,11 +12,15 @@ export class HomeService {
   allTestmonial:any[] = [];
   allVacciniationCentre:any[] = [];
   allHome:any[] = [];
+  allAbout:any[] = [];
   logoImage:any;
   title1Im:any;
   new1Im:any;
   new2Im:any;
   new3Im:any; 
+  imTitleAbout:any;
+  whImageAbout:any;
+  proImageAbout:any;
   constructor(private http:HttpClient,private spinner :NgxSpinnerService ,private toastr:ToastrService) { }
 
   
@@ -184,6 +188,7 @@ export class HomeService {
       })
     }
 
+    
    
 
     getAllVacciniationCentre(){
@@ -252,6 +257,85 @@ export class HomeService {
       }
       )
     }
+    getAllAbout(){
+      this.spinner.show();
+      this.http.get('https://localhost:44352/api/about').subscribe((resp:any)=>
+      {
+        this.spinner.hide();
+        this.allAbout = resp;
+        this.toastr.success('All About');
+      }, err=>
+      {
+        this.spinner.hide();
+        this.toastr.error(err.message, err.status);
+      })
+    }
+    createAbout(body:any){
+      body.imageTitle1 = this.imTitleAbout;
+      body.whatImage = this.whImageAbout;
+      body.protectImage = this.proImageAbout;
+      this.spinner.show();
+      this.http.post('https://localhost:44352/api/about', body).subscribe((resp)=>
+      {
+        this.spinner.hide();
+        this.toastr.success('Created');
+      }, err=>
+      {
+        this.spinner.hide();
+        this.toastr.error(err.message, err.status);
+      })
+    }
+    uploadImageTitleAbout(file:FormData){
+      this.http.post('https://localhost:44352/api/about/UploadImage/imageTitle1', file).subscribe((resp:any)=>{
+      this.imTitleAbout = resp.imageTitle1;
+      }, err=>
+      {
+        this.toastr.error('Can\'t Upload Image');
+      });
+      }
+      uploadImageProAbout(file:FormData){
+        this.http.post('https://localhost:44352/api/about/UploadImage/protectImage', file).subscribe((resp:any)=>{
+        this.proImageAbout = resp.protectImage;
+        }, err=>
+        {
+          this.toastr.error('Can\'t Upload Image');
+        });
+        }
+        uploadImageWhAbout(file:FormData){
+          this.http.post('https://localhost:44352/api/about/UploadImage/whatImage', file).subscribe((resp:any)=>{
+          this.whImageAbout = resp.whatImage;
+          }, err=>
+          {
+            this.toastr.error('Can\'t Upload Image');
+          });
+          }
+         
+    updateAbout(body:any){
+      this.spinner.show();
+      this.http.put('https://localhost:44352/api/about', body).subscribe((resp)=>
+      {
+        this.spinner.hide();
+        this.toastr.success('Updated');
+      }, err=>
+      {
+        this.spinner.hide();
+        this.toastr.error(err.message, err.status);
+      });
+    }
+
+    deleteAbout(id:number){
+      this.spinner.show();
+      this.http.delete('https://localhost:44352/api/about/Delete/' + id).subscribe((resp)=>
+      {
+        this.spinner.hide();
+        this.toastr.success('Deleted');
+      }, err=>
+      {
+        this.spinner.hide();
+        this.toastr.error(err.message, err.status);
+      })
+    }
+
     
   }
 

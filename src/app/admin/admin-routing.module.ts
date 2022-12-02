@@ -9,6 +9,8 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { ManageHomeComponent } from './manage-home/manage-home.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { TablesComponent } from './tables/tables.component';
+import { AboutComponent } from '../about/about.component';
+import { ManageAboutComponent } from './manage-about/manage-about.component';
 
 const routes: Routes = [
   {
@@ -59,6 +61,11 @@ const routes: Routes = [
     component:TablesComponent
     
   },
+  {
+    path:'manageAbout',
+    component:ManageAboutComponent
+    
+  }
   
 ];
 
