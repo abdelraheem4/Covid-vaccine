@@ -257,9 +257,13 @@ export class HomeService {
       }
       )
     }
+<<<<<<< HEAD
 // <<<<<<< HEAD
 
 // =======
+=======
+
+>>>>>>> 6bae772dc20ad004555b31382ef6a4ab297df2a9
     getAllAbout(){
       this.spinner.show();
       this.http.get('https://localhost:44352/api/about').subscribe((resp:any)=>
@@ -274,9 +278,9 @@ export class HomeService {
       })
     }
     createAbout(body:any){
-      body.imageTitle1 = this.imTitleAbout;
-      body.whatImage = this.whImageAbout;
-      body.protectImage = this.proImageAbout;
+      body.imagetitle1 = this.imTitleAbout;
+      body.whatimage = this.whImageAbout;
+      body.protectimage = this.proImageAbout;
       this.spinner.show();
       this.http.post('https://localhost:44352/api/about', body).subscribe((resp)=>
       {
@@ -290,7 +294,7 @@ export class HomeService {
     }
     uploadImageTitleAbout(file:FormData){
       this.http.post('https://localhost:44352/api/about/UploadImage/imageTitle1', file).subscribe((resp:any)=>{
-      this.imTitleAbout = resp.imageTitle1;
+      this.imTitleAbout = resp.imagetitle1;
       }, err=>
       {
         this.toastr.error('Can\'t Upload Image');
@@ -298,7 +302,7 @@ export class HomeService {
       }
       uploadImageProAbout(file:FormData){
         this.http.post('https://localhost:44352/api/about/UploadImage/protectImage', file).subscribe((resp:any)=>{
-        this.proImageAbout = resp.protectImage;
+        this.proImageAbout = resp.protectimage;
         }, err=>
         {
           this.toastr.error('Can\'t Upload Image');
@@ -306,7 +310,7 @@ export class HomeService {
         }
         uploadImageWhAbout(file:FormData){
           this.http.post('https://localhost:44352/api/about/UploadImage/whatImage', file).subscribe((resp:any)=>{
-          this.whImageAbout = resp.whatImage;
+          this.whImageAbout = resp.whatimage;
           }, err=>
           {
             this.toastr.error('Can\'t Upload Image');
@@ -338,7 +342,10 @@ export class HomeService {
         this.toastr.error(err.message, err.status);
       })
     }
+<<<<<<< HEAD
 // >>>>>>> 6a7af8f9cfeaa651c684a20b3344fd5c1457d8d0
+=======
+>>>>>>> 6bae772dc20ad004555b31382ef6a4ab297df2a9
 
     
   }

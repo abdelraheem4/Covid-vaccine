@@ -16,9 +16,12 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+<<<<<<< HEAD
 import { NewDashComponent } from './admin/new-dash/new-dash.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TokenInterceptor } from 'src/Interceptor/token.Interceptor';
+=======
+>>>>>>> 6bae772dc20ad004555b31382ef6a4ab297df2a9
 
 @NgModule({
   declarations: [
@@ -27,8 +30,6 @@ import { TokenInterceptor } from 'src/Interceptor/token.Interceptor';
     PreventionComponent,
     SymptomsComponent,
     AboutComponent,
-    NewDashComponent,
-    DashboardComponent,
 
   ],
   imports: [
