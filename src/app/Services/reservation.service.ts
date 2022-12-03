@@ -8,6 +8,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ReservationService {
   reservation:any=[{}];
+reserveid: any;
+userid: any;
+status: any;
+massage: any;
+actualdatedose1: any;
+actualdatedose2: any;
 
   constructor(private http:HttpClient,private spinner :NgxSpinnerService,private toastr:ToastrService) { }
   getall(){
@@ -38,6 +44,7 @@ this.http.post('https://localhost:44352/api/Reservation',body).subscribe((resp)=
   }
 
   Updatereservation(body:any){
+    debugger
     this.spinner
     this.http.put('https://localhost:44352/api/Reservation',body).subscribe((resp)=>{
       this.spinner.hide();
