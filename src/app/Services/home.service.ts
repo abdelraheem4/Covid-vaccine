@@ -257,7 +257,13 @@ export class HomeService {
       }
       )
     }
+<<<<<<< HEAD
+// <<<<<<< HEAD
 
+// =======
+=======
+
+>>>>>>> 6bae772dc20ad004555b31382ef6a4ab297df2a9
     getAllAbout(){
       this.spinner.show();
       this.http.get('https://localhost:44352/api/about').subscribe((resp:any)=>
@@ -336,6 +342,10 @@ export class HomeService {
         this.toastr.error(err.message, err.status);
       })
     }
+<<<<<<< HEAD
+// >>>>>>> 6a7af8f9cfeaa651c684a20b3344fd5c1457d8d0
+=======
+>>>>>>> 6bae772dc20ad004555b31382ef6a4ab297df2a9
 
     
   }
