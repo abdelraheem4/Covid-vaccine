@@ -7,15 +7,18 @@ import { HomeComponent } from './home/home.component';
 import { PreventionComponent } from './prevention/prevention.component';
 import { SymptomsComponent } from './symptoms/symptoms.component';
 import { AuthModule } from './auth/auth.module';
+import { ErrorComponent } from './shared/error/error.component';
 
-const routes: Routes = [ { 
+const routes: Routes = [ 
+  {
+    path:'',
+    component:HomeComponent
+  },
+{
   path:'prevention',
   component:PreventionComponent
 },
-{
-  path:'home',
-  component:HomeComponent
-},
+
 {
   path:'symptoms',
   component:SymptomsComponent
@@ -44,6 +47,11 @@ const routes: Routes = [ {
 {
   path:'security',
   loadChildren:()=>AuthModule
+},
+{
+  path:'**',
+  component:ErrorComponent
+
 },
 
 
