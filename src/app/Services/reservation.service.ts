@@ -12,7 +12,7 @@ export class ReservationService {
   constructor(private http:HttpClient,private spinner :NgxSpinnerService,private toastr:ToastrService) { }
   getall(){
     this.spinner.show();
-    this.http.get('https://localhost:44352/api/Reservation').subscribe((res)=>{
+    this.http.get('https://localhost:44352/api/Reservation/getall').subscribe((res)=>{
       this.reservation=res;
       this.spinner.hide();
       this.toastr.success('Data Retrived successfully');
