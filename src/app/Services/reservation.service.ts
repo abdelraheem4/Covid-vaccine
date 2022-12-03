@@ -61,6 +61,34 @@ this.http.post('https://localhost:44352/api/Reservation',body).subscribe((resp)=
       
     })
   }
+
+  SearchBetweenFirstDose(DateFrom:Date, DateTo:Date){
+    this.spinner.show();
+    this.http.get('https://localhost:44352/api/Reservation/searchByFirstDose/' + DateFrom + '/' + DateTo).subscribe((resp)=>{
+      this.reservation = resp;  
+    this.spinner.hide();
+      this.toastr.success('Getting successfully');
+    },err=>{
+      this.spinner.hide();
+      this.toastr.error(err.message, err.status);
+    
+  
+})
+}
+allBySearchSecondDose:any;
+SearchBetweenSecondDose(DateFrom:Date, DateTo:Date){
+  this.spinner.show();
+  this.http.get('https://localhost:44352/api/Reservation/searchBySecondDose/' + DateFrom + '/' + DateTo).subscribe((resp)=>{
+    this.reservation = resp;
+    this.spinner.hide();
+    this.toastr.success('Getting successfully');
+  },err=>{
+    this.spinner.hide();
+    this.toastr.error(err.message, err.status);
+  
+
+})
+}
 }
   
 

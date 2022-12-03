@@ -1,7 +1,26 @@
 <app-sidebar></app-sidebar>
+
 <table tyle="display:inline-block ;">
+  
     <div  class="table">
       <button (click)="openCreateDialog()">Creat new</button>
+<form style="margin-left: 80px;">
+  <legend>First Dose</legend>
+  <label for="first">From</label>
+  <input type="date"  (change)="searchInputFromFirst($event)" [value]="datefromFirst" name="first"><br>
+  <label for="second">To</label>
+  <input type="date"  (change)="searchInputToFirst($event)" [value]="datetoFirst" name="second"><br>
+  <button (click)="SearchBetweenFirstDose()">Search</button>
+</form>
+<form style="margin-left: 80px;">
+  <legend>Second Dose</legend>
+  <label for="first">From</label>
+  <input type="date"  (change)="searchInputFromSecond($event)" [value]="datefromSecond" name="first"><br>
+  <label for="second">To</label>
+  <input type="date"  (change)="searchInputToSecond($event)" [value]="datetoSecond" name="second"><br>
+  <button (click)="SearchBetweenSecondDose()">Search</button>
+</form>
+
 
       <div  class="row header">
         <div class="cell">
