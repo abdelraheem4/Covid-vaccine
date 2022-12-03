@@ -32,24 +32,23 @@ userReservation: any;
    
   
   p_data:any={};
-  openUpdateDailog(reserveid:any,status:any,massage:any,ActualDateDose1:any,ActualDateDose2:any
+  openUpdateDailog(reserveid:any,status:any,massage:any,ActualDateDose1:Date,ActualDateDose2:Date
     ){
    debugger
     this.p_data={
       
       reserveid:reserveid,
       status:status,
-      massage:massage,
-     ActualDateDose1:ActualDateDose1,
-      ActualDateDose2:ActualDateDose2
-
+      massage:massage
      }
+     this.p_data.actualdatedose1 = new Date(ActualDateDose1);
+     this.p_data.actualdatedose2 = new Date(ActualDateDose2);
+
     this.updateForm.controls['reserveid'].setValue(this.p_data.reserveid);
-    
-     this.updateForm.controls['massage'].setValue(this.p_data.massage);
+    this.updateForm.controls['massage'].setValue(this.p_data.massage);
     this.dialog.open(this.callUpdateDailog);
   }
- 
+
 
 
 

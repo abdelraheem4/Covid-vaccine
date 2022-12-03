@@ -48,8 +48,9 @@
         <td>{{obj.fullname}}</td>
         <td>{{obj.email}}</td>
         <td>{{obj.numberofvaccines}}</td>
-        <td>{{obj.actualdatedose1}}</td>
-        <td>{{obj.actualdatedose2}}</td>
+        <td>{{obj.actualdatedose1 | date : 'fullDate'}}</td>
+        <td>{{obj.actualdatedose2 | date : 'fullDate'}}</td>
+
         <td>{{obj.massage}}</td>
         <td>{{obj.status}}</td>
         <td>
@@ -85,8 +86,8 @@
             <br>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label> First dose </mat-label>
-              <input type="date" matInput formControlName="actualdatedose1"
-              [(ngModel)]="p_data.actualdatedose1"
+              <input readonly type="text" matInput formControlName="actualdatedose1"
+              ngModel="{{p_data.actualdatedose1 | date : 'fullDate'}}"
               >
               
               <mat-error *ngIf="updateForm.controls['actualdatedose1'].hasError('required')">
@@ -97,8 +98,8 @@
           <br>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label> Second dose </mat-label>
-            <input type="date" matInput formControlName="actualdatedose2"
-            [(ngModel)]="p_data.actualdatedose2"
+            <input readonly type="text" matInput formControlName="actualdatedose2"
+            ngModel="{{p_data.actualdatedose2 | date : 'fullDate'}}"            
             >
             
             <mat-error *ngIf="updateForm.controls['actualdatedose2'].hasError('required')">
