@@ -11,11 +11,12 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { TablesComponent } from './tables/tables.component';
 import { AboutComponent } from '../about/about.component';
 import { ManageAboutComponent } from './manage-about/manage-about.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path:'',
-    component:SidebarComponent
+    component:DashboardComponent
   },
   {
     path:'user',

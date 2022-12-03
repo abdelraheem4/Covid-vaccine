@@ -13,7 +13,7 @@ export class ManageAboutComponent implements OnInit {
   constructor(public home:HomeService, private dialog:MatDialog) { }
 
   ngOnInit(): void {
-    this.home.getAllAbout();
+    // this.home.allAbout();
   }
 
   @ViewChild('callCrateTest') callCrateTest!:TemplateRef<any>

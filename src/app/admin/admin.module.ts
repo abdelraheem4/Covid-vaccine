@@ -21,6 +21,7 @@ import { ManageVaccineComponent } from '../doctor/manage-vaccine/manage-vaccine.
 import { ReservationComponent } from './reservation/reservation.component';
 import { TablesComponent } from './tables/tables.component';
 import { ManageAboutComponent } from './manage-about/manage-about.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -39,7 +40,9 @@ ManageUserComponent,
     ManagevaccinesComponent,
     ReservationComponent,
     TablesComponent,
-    ManageAboutComponent
+    ManageAboutComponent,
+    DashboardComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -51,7 +54,8 @@ ManageUserComponent,
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    
   ]
 })
 export class AdminModule { }

@@ -257,6 +257,7 @@ export class HomeService {
       }
       )
     }
+
     getAllAbout(){
       this.spinner.show();
       this.http.get('https://localhost:44352/api/about').subscribe((resp:any)=>
