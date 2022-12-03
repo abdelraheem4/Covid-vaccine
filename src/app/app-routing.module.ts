@@ -15,7 +15,7 @@ const routes: Routes = [ {
   component:PreventionComponent
 },
 {
-  path:'',
+  path:'home',
   component:HomeComponent
 },
 {

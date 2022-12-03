@@ -257,9 +257,9 @@ export class HomeService {
       }
       )
     }
-<<<<<<< HEAD
+// <<<<<<< HEAD
 
-=======
+// =======
     getAllAbout(){
       this.spinner.show();
       this.http.get('https://localhost:44352/api/about').subscribe((resp:any)=>
@@ -338,7 +338,7 @@ export class HomeService {
         this.toastr.error(err.message, err.status);
       })
     }
->>>>>>> 6a7af8f9cfeaa651c684a20b3344fd5c1457d8d0
+// >>>>>>> 6a7af8f9cfeaa651c684a20b3344fd5c1457d8d0
 
     
   }

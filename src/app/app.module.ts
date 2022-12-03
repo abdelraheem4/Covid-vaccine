@@ -9,7 +9,7 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
 import { AboutComponent } from './about/about.component';
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
-import{HttpClientModule}from '@angular/common/http';
+import{HttpClientModule, HTTP_INTERCEPTORS}from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
@@ -18,6 +18,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NewDashComponent } from './admin/new-dash/new-dash.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TokenInterceptor } from 'src/Interceptor/token.Interceptor';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatDialogModule,
     BrowserAnimationsModule
 ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
