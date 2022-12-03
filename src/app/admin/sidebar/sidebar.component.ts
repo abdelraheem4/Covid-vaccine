@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private routr:Router,private toastr:ToastrService) { }
+  constructor(private router:Router,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.toastr.success('success');
@@ -17,6 +17,6 @@ export class SidebarComponent implements OnInit {
   logout()
   {
     localStorage.clear();
-    this.routr.navigate(['security/login']);
+    this.router.navigate(['security/login']);
   }
 }

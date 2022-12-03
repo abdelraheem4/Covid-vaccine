@@ -7,15 +7,19 @@ import { HomeComponent } from './home/home.component';
 import { PreventionComponent } from './prevention/prevention.component';
 import { SymptomsComponent } from './symptoms/symptoms.component';
 import { AuthModule } from './auth/auth.module';
+import { ErrorComponent } from './shared/error/error.component';
+import { AuthorizationGuard } from './authorization.guard';
 
-const routes: Routes = [ { 
+const routes: Routes = [ 
+  {
+    path:'',
+    component:HomeComponent
+  },
+{
   path:'prevention',
   component:PreventionComponent
 },
-{
-  path:'',
-  component:HomeComponent
-},
+
 {
   path:'symptoms',
   component:SymptomsComponent
@@ -26,7 +30,9 @@ const routes: Routes = [ {
 },
 {
   path:'admin',
-  loadChildren:()=>AdminModule
+  loadChildren:()=>AdminModule,
+  canActivate:[AuthorizationGuard]
+
 },
 {
   path:'managedoctor',
@@ -44,6 +50,11 @@ const routes: Routes = [ {
 {
   path:'security',
   loadChildren:()=>AuthModule
+},
+{
+  path:'**',
+  component:ErrorComponent
+
 },
 
 
