@@ -271,9 +271,9 @@ export class HomeService {
       })
     }
     createAbout(body:any){
-      body.imageTitle1 = this.imTitleAbout;
-      body.whatImage = this.whImageAbout;
-      body.protectImage = this.proImageAbout;
+      body.imagetitle1 = this.imTitleAbout;
+      body.whatimage = this.whImageAbout;
+      body.protectimage = this.proImageAbout;
       this.spinner.show();
       this.http.post('https://localhost:44352/api/about', body).subscribe((resp)=>
       {
@@ -287,7 +287,7 @@ export class HomeService {
     }
     uploadImageTitleAbout(file:FormData){
       this.http.post('https://localhost:44352/api/about/UploadImage/imageTitle1', file).subscribe((resp:any)=>{
-      this.imTitleAbout = resp.imageTitle1;
+      this.imTitleAbout = resp.imagetitle1;
       }, err=>
       {
         this.toastr.error('Can\'t Upload Image');
@@ -295,7 +295,7 @@ export class HomeService {
       }
       uploadImageProAbout(file:FormData){
         this.http.post('https://localhost:44352/api/about/UploadImage/protectImage', file).subscribe((resp:any)=>{
-        this.proImageAbout = resp.protectImage;
+        this.proImageAbout = resp.protectimage;
         }, err=>
         {
           this.toastr.error('Can\'t Upload Image');
@@ -303,7 +303,7 @@ export class HomeService {
         }
         uploadImageWhAbout(file:FormData){
           this.http.post('https://localhost:44352/api/about/UploadImage/whatImage', file).subscribe((resp:any)=>{
-          this.whImageAbout = resp.whatImage;
+          this.whImageAbout = resp.whatimage;
           }, err=>
           {
             this.toastr.error('Can\'t Upload Image');
