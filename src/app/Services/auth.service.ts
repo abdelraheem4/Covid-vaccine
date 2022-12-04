@@ -47,7 +47,7 @@ export class AuthService {
           else if (data.role==2)
           this.router.navigate(['managedoctor/user']);
           else if (data.role==1)
-          this.router.navigate(['home']);
+          this.router.navigate(['']);
           
           } ,err=>{ 
           this.toster.error(err.message.err.status);
