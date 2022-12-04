@@ -93,7 +93,7 @@ background-size: cover; ">
                                </svg>
                             </span> -->
                             <mat-form-field >
-                              <input type="password"  matInput formControlName="confirmPassword"  (change)="matchError()" placeholder="Confirm Passwprd">
+                              <input type="password"  matInput formControlName="confirmPassword"  (change)="matchError()" placeholder="Confirm Password">
                               
                               <mat-error *ngIf="registerForm.controls['confirmPassword'].hasError('minLength') ">
                                 Please enter a strong Password 
