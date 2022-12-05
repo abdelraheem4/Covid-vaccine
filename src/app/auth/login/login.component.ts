@@ -14,8 +14,8 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private spinner:NgxSpinnerService,private route:Router,public auth:AuthService) { }
-  email = new FormControl('' ,[Validators.required , Validators.email]);
+  constructor(private spinner:NgxSpinnerService,public home:HomeService, private route:Router,public auth:AuthService) { }
+  username = new FormControl('' ,[Validators.required ]);
   password = new FormControl('' ,[Validators.required , Validators.minLength(8)]);
   
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       this.spinner.hide();
     },3000);
     
-     this.auth.submit(this.email,this.password);
+     this.auth.submit(this.username,this.password);
    }
    goToregister(){
     this.route.navigate(['security/register'])
