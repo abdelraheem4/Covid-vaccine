@@ -16,6 +16,37 @@ export class ReservationComponent implements OnInit {
 @ViewChild('callUpdateDailog') callUpdateDailog!:TemplateRef<any>
 @ViewChild('callDelteDailog') callDelteDailog!:TemplateRef<any>
 @ViewChild('callCreateDailog') callCreateDailog!:TemplateRef<any>
+
+datefromSecond:any = '';
+datetoSecond:any =''; 
+datefromFirst:any ='';
+datetoFirst:any ='';
+searchInputFromSecond(ev:any){
+  this.datefromSecond = ev.target.value;
+  console.log(this.datefromSecond)
+   }
+   searchInputToSecond(ev:any){
+    this.datetoSecond = ev.target.value;
+    console.log(this.datetoSecond)
+     }
+     
+
+  SearchBetweenSecondDose(){
+    this.reservation.SearchBetweenSecondDose(this.datefromSecond, this.datetoSecond);
+  }
+  searchInputFromFirst(ev:any){
+    this.datefromFirst = ev.target.value;
+    console.log(this.datefromFirst)
+     }
+     searchInputToFirst(ev:any){
+      this.datetoFirst = ev.target.value;
+      console.log(this.datetoFirst)
+       }
+       
+  
+    SearchBetweenFirstDose(){
+      this.reservation.SearchBetweenFirstDose(this.datefromFirst, this.datetoFirst);
+    }
   updateForm:FormGroup = new FormGroup ({
     Id: new FormControl(),
     actualdatedose1:new FormControl('',Validators.required),

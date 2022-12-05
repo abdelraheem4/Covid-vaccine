@@ -45,7 +45,7 @@ export class AuthorizationGuard implements CanActivate {
     }
     else 
     {
-      this.route.navigate(['security/login']);
+      this.route.navigate(['security/']);
       this.toster.warning('Please Login');
       return false;
 

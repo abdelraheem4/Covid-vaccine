@@ -38,15 +38,6 @@ const routes: Routes = [
   path:'managedoctor',
   loadChildren:()=>DoctorModule
 },
-
-
-
-
-
-// {
-//   path:'security',
-//   loadChildren:()=>AuthModule
-// },
 {
   path:'security',
   loadChildren:()=>AuthModule
