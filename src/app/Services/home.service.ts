@@ -22,6 +22,7 @@ export class HomeService {
   whImageAbout:any;
   proImageAbout:any;
   constructor(private http:HttpClient,private spinner :NgxSpinnerService ,private toastr:ToastrService) { }
+  message: string = "Welcome Trainee :) ";
 
   
     GetAllTestmonials(){

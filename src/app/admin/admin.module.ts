@@ -21,7 +21,11 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { TablesComponent } from './tables/tables.component';
 import { ManageAboutComponent } from './manage-about/manage-about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+<<<<<<< HEAD
 import { UserVaccineReportComponent } from './user-vaccine-report/user-vaccine-report.component';
+=======
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+>>>>>>> 1492845cbd16125f400c2d09da0e76b7ead8eb52
 
 
 @NgModule({
@@ -42,7 +46,11 @@ ManageUserComponent,
     TablesComponent,
     ManageAboutComponent,
     DashboardComponent,
+<<<<<<< HEAD
     UserVaccineReportComponent,
+=======
+    UpdateProfileComponent,
+>>>>>>> 1492845cbd16125f400c2d09da0e76b7ead8eb52
     
   ],
   imports: [
