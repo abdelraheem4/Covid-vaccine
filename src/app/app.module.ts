@@ -17,7 +17,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenInterceptor } from 'src/Interceptor/token.Interceptor';
-import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { MapComponent } from './map/map.component';
     PreventionComponent,
     SymptomsComponent,
     AboutComponent,
-    MapComponent,
 
   ],
   imports: [
