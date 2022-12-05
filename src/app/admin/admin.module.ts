@@ -21,6 +21,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { TablesComponent } from './tables/tables.component';
 import { ManageAboutComponent } from './manage-about/manage-about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ ManageUserComponent,
     TablesComponent,
     ManageAboutComponent,
     DashboardComponent,
+    UpdateProfileComponent,
     
   ],
   imports: [

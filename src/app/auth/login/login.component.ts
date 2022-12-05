@@ -7,8 +7,6 @@ import { HomeService } from 'src/app/Services/home.service';
 import { AuthService } from 'src/app/Services/auth.service';
 
 
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
