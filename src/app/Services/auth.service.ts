@@ -21,23 +21,21 @@ export class AuthService {
 
           var body={
                      
-            username: username.value.toString(),
+          username: username.value.toString(),
           password: password.value.toString()
               
-          }
+          };
 
           const headerDic={
             'Content-Type':'application/json',
             'Accept':'application/json'
-          } 
+          };
 
           const requestOptions={
             headers:new HttpHeaders(headerDic)
-          }
-          debugger
+          };
           console.log('ahmad');
           this.http.post('https://localhost:44352/api/JWT',body,requestOptions).subscribe((resp:any)=>{
-          debugger
           console.log("hello");
             
             console.log(resp);
@@ -52,7 +50,7 @@ export class AuthService {
           localStorage.setItem('user',JSON.stringify({...data}));
           
           if(data.Role == '3')
-          this.router.navigate(['admin/']);
+          this.router.navigate(['admin/userVaccineReport']);
           else if (data.Role == '2')
           this.router.navigate(['managedoctor/user']);
           else if (data.Role== '1')
