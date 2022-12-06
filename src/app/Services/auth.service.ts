@@ -53,9 +53,9 @@ export class AuthService {
           
           if(data.Role == '3')
           this.router.navigate(['admin']);
-          else if (data.role==2)
+          else if (data.Role == '2')
           this.router.navigate(['managedoctor/user']);
-          else if (data.role==1)
+          else if (data.Role== '1')
           this.router.navigate(['about']);
           
           } ,err=>{ 
