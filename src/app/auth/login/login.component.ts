@@ -14,9 +14,15 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+<<<<<<< HEAD
   constructor(private spinner:NgxSpinnerService,private route:Router,public auth:AuthService) { }
   username:FormControl = new FormControl('' ,[Validators.required ]);
   password:FormControl = new FormControl('' ,[Validators.required , Validators.minLength(8)]);
+=======
+  constructor(private spinner:NgxSpinnerService,public home:HomeService, private route:Router,public auth:AuthService) { }
+  username = new FormControl('' ,[Validators.required ]);
+  password = new FormControl('' ,[Validators.required , Validators.minLength(8)]);
+>>>>>>> fd181e97a6fe964a2028f4fc08696f5026a77eb0
   
   ngOnInit(): void {
   }

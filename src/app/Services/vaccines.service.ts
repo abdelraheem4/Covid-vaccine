@@ -8,6 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class VaccinesService {
   Vaccine:any=[{}];
+  vaccineCertifcate:any[] = [];
+
 
   constructor(private http:HttpClient,private spinner :NgxSpinnerService,private toastr:ToastrService) { }
   getall(){
@@ -78,6 +80,24 @@ this.http.post('https://localhost:44352/api/vaccines',body).subscribe((resp)=>{
       this.toastr.error(err.message, err.status);
     })
   }
+  GetCertificateVaccine(){
+    this.spinner.show();
+    debugger;
+    this.http.get('https://localhost:44352/api/CertificateVaccine').subscribe((resp:any)=>
+    {
+      this.vaccineCertifcate=resp;
+
+      this.spinner.hide();
+      this.toastr.success(' Successfully Return Certificate');
+
+    },err=>{
+      this.spinner.hide();
+      this.toastr.error(err.message, err.status);
+    })
+  }
+
+  
+
 
 
 
