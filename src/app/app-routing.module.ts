@@ -9,6 +9,11 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
 import { AuthModule } from './auth/auth.module';
 import { ErrorComponent } from './shared/error/error.component';
 import { AuthorizationGuard } from './authorization.guard';
+import { GoogleMapsComponent } from './google-maps/google-maps.component';
+import { MapMarkerClusterer } from '@angular/google-maps';
+import { MapMarkerComponent } from './map-marker/map-marker.component';
+import { MapWindowComponent } from './map-window/map-window.component';
+import { AccessModule } from './access/access.module';
 
 const routes: Routes = [ 
   {
@@ -31,7 +36,7 @@ const routes: Routes = [
 {
   path:'admin',
   loadChildren:()=>AdminModule,
-  canActivate:[AuthorizationGuard]
+  // canActivate:[AuthorizationGuard]
 
 },
 {
@@ -39,18 +44,27 @@ const routes: Routes = [
   loadChildren:()=>DoctorModule
 },
 
+{
+path:'map',
+component:GoogleMapsComponent
+},
+{
+path:'maeker',
+component:MapMarkerComponent
+},
+{
+path:'info',
+component:MapWindowComponent
+},
 
-
-
-
-// {
-//   path:'security',
-//   loadChildren:()=>AuthModule
-// },
 {
   path:'security',
   loadChildren:()=>AuthModule
 },
+// {
+//   path:'access',
+//   loadChildren:()=>AccessModule 
+// },
 {
   path:'**',
   component:ErrorComponent

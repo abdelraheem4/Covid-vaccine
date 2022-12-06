@@ -13,15 +13,15 @@ import { Route, Router } from '@angular/router';
 export class AuthService {
 
   constructor(private home:HomeService,private toster:ToastrService,private http:HttpClient,private router:Router ) { }
-  submit(email:any , password:any){
+  submit(username:any , password:any){
    
-//     console.log(email.value);
-//     console.log(password.value);
-// this.toster.success('Logged In Successfully')
+    // console.log(email.value);
+    // console.log(password.value);
+this.toster.success('Logged In Successfully')
 
           var body={
                      
-           email: email.value.toString(),
+            username: username.value.toString(),
           password: password.value.toString()
               
           }
@@ -32,10 +32,14 @@ export class AuthService {
           } 
 
           const requestOptions={
-            headers:new HttpHeaders(headerDic,)
+            headers:new HttpHeaders(headerDic)
           }
 
-          this.http.post('https://localhost:44352/api/UserAccount',body).subscribe((resp:any)=>{
+          this.http.post('https://localhost:44352/api/JWT/',body,requestOptions).subscribe((resp:any)=>{
+            console.log("hello");
+            
+            console.log(resp);
+            
             const responce={
               token:resp.toString()
             } 
@@ -46,8 +50,8 @@ export class AuthService {
           this.router.navigate(['admin']);
           else if (data.role==2)
           this.router.navigate(['managedoctor/user']);
-          else if (data.role==1)
-          this.router.navigate(['home']);
+          else if (data.Role==1)
+          this.router.navigate(['about']);
           
           } ,err=>{ 
           this.toster.error(err.message.err.status);
@@ -55,3 +59,36 @@ export class AuthService {
     
    }
 }
+         
+// console.log("hello");
+
+
+// var body = {
+//   username: username.value.toString(),
+//   password: password.value.toString()
+// }
+// const headerDic = {
+//   'Content-Type': 'application/json',
+//   'Accept': 'application/json'
+// }
+// const requestOptions = {
+//   headers: new HttpHeaders(headerDic)
+// }
+
+// this.http.post('https://localhost:44352/api/JWT/', body, requestOptions).subscribe((resp: any) => {
+//   const responce = {
+//     token: resp.toString()
+//   }
+//   localStorage.setItem('token', responce.token);
+//   let data: any = jwt_decode(responce.token);
+//   localStorage.setItem('user', JSON.stringify({ ...data }));
+//   if (data.Role == 1) {
+//     this.router.navigate(['']);
+//   } else if (data.Roleid == 2) {
+//     this.router.navigate(['user/sidebarUser']);
+//   }
+// }, err => {
+//   this.toster.error(err.masseage, err.status);
+// })
+
+// }}
