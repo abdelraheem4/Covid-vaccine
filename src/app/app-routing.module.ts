@@ -43,7 +43,6 @@ const routes: Routes = [
   path:'managedoctor',
   loadChildren:()=>DoctorModule
 },
-<<<<<<< HEAD
 
 {
 path:'map',
@@ -58,8 +57,6 @@ path:'info',
 component:MapWindowComponent
 },
 
-=======
->>>>>>> fd181e97a6fe964a2028f4fc08696f5026a77eb0
 {
   path:'security',
   loadChildren:()=>AuthModule
