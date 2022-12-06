@@ -17,10 +17,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenInterceptor } from 'src/Interceptor/token.Interceptor';
-import { GoogleMapsComponent } from './google-maps/google-maps.component';
-import { GoogleMapsModule } from '@angular/google-maps';
-import { MapMarkerComponent } from './map-marker/map-marker.component';
-import { MapWindowComponent } from './map-window/map-window.component'
+// import { GoogleMapsComponent } from './google-maps/google-maps.component';
+// import { GoogleMapsModule } from '@angular/google-maps';
+//import { MapMarkerComponent } from './map-marker/map-marker.component';
+//import { MapWindowComponent } from './map-window/map-window.component'
 
 @NgModule({
   declarations: [
@@ -29,9 +29,9 @@ import { MapWindowComponent } from './map-window/map-window.component'
     PreventionComponent,
     SymptomsComponent,
     AboutComponent,
-    GoogleMapsComponent,
-    MapMarkerComponent,
-    MapWindowComponent,
+    //GoogleMapsComponent,
+    //MapMarkerComponent,
+    //MapWindowComponent,
 
   ],
   imports: [
@@ -48,7 +48,7 @@ import { MapWindowComponent } from './map-window/map-window.component'
     MatButtonModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    GoogleMapsModule
+    //GoogleMapsModule
 ],
   providers: [{
     provide:HTTP_INTERCEPTORS,

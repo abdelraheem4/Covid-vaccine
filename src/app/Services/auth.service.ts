@@ -34,9 +34,10 @@ this.toster.success('Logged In Successfully')
           const requestOptions={
             headers:new HttpHeaders(headerDic)
           }
-
+          debugger
           this.http.post('https://localhost:44352/api/JWT/',body,requestOptions).subscribe((resp:any)=>{
-            console.log("hello");
+          debugger
+          console.log("hello");
             
             console.log(resp);
             
@@ -44,13 +45,16 @@ this.toster.success('Logged In Successfully')
               token:resp.toString()
             } 
          localStorage.setItem('token',responce.token);
+         
           let data:any =jwt_decode(responce.token);
+
           localStorage.setItem('user',JSON.stringify({...data}));
-          if(data.role==3)
-          this.router.navigate(['admin']);
+          
+          if(data.Role == '3')
+          this.router.navigate(['admin/']);
           else if (data.role==2)
           this.router.navigate(['managedoctor/user']);
-          else if (data.Role==1)
+          else if (data.role==1)
           this.router.navigate(['about']);
           
           } ,err=>{ 

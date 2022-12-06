@@ -11,7 +11,7 @@ import { HomeService } from 'src/app/Services/home.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private spinner:NgxSpinnerService,public home:HomeService ) { }
+  constructor(private spinner:NgxSpinnerService,public home:HomeService, private auth:AuthService  ) { }
   username:FormControl = new FormControl('' ,[Validators.required ]);
   password:FormControl = new FormControl('' ,[Validators.required , Validators.minLength(8)]);
   
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       this.spinner.hide();
      },3000);
     
-    //  this.auth.submit(this.username,this.password);
+    this.auth.submit(this.username,this.password);
    }
    goToregister(){
     // this.route.navigate(['security/register'])

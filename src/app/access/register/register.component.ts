@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
     confirmPassword:new FormControl('',[Validators.required,Validators.minLength(8)]),
     
   })
-  constructor(private route:Router,private spinner :NgxSpinnerService) { }
+  constructor(private route:Router,private spinner :NgxSpinnerService, private auth:AuthService) { }
  
   submit(){
     this.spinner.show();
@@ -26,6 +27,7 @@ export class RegisterComponent implements OnInit {
       this.spinner.hide();
     },3000)
     console.log(this.registerForm.value);
+
   }
   ngOnInit(): void {
   }
