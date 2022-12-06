@@ -22,11 +22,8 @@ background-size: cover; ">
           <div class="input-group">
 
         <mat-form-field >
-        <input matInput style="display:inline" id="username" type="text" 
+        <input matInput style="display:inline" type="text" 
         [formControl]="username" title="username" placeholder="username" >
-        <!-- <mat-error *ngIf="username.hasError('email')">
-          Please enter a valid email address
-        </mat-error> -->
 
         <mat-error *ngIf="username.hasError('required')">
       UserName is <strong>required</strong>
@@ -39,7 +36,7 @@ background-size: cover; ">
     <div class="form-group mb-4">
        <div class="input-group">
       <mat-form-field >
-        <input matInput id="password"  [formControl]="password" 
+        <input matInput   [formControl]="password" 
         type="password" title="password" placeholder="Password" >
         <mat-error *ngIf="password.hasError('minlength')">
           Please enter a strong password
@@ -53,7 +50,7 @@ background-size: cover; ">
 </div>
 
        
-<div class="d-grid">   <button class="btn btn-gray-800" [disabled]="!username.valid||!password.valid" (click)="submit()">Login</button></div>
+<div class="d-grid">   <button (click)="submit()" class="btn btn-gray-800" [disabled]="!username.valid||!password.valid" >Login</button></div>
 
    
       </form>

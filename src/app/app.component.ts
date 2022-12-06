@@ -8,10 +8,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class AppComponent {
 constructor(private spinner:NgxSpinnerService){
-  this.spinner.show();
-  setTimeout(()=>{
-    this.spinner.hide();
-  },3000)
+  
 }
 
 

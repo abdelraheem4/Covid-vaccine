@@ -18,18 +18,9 @@ export class LoginComponent implements OnInit {
   
   ngOnInit(): void {
   }
- 
+  
   submit(){
-
-    console.log(this.username.value);
-    console.log(this.password.value);
-
-    
-      this.spinner.show();
-     setTimeout(()=>{
-      this.spinner.hide();
-     },3000);
-    
+    debugger;
      this.auth.submit(this.username,this.password);
    }
    goToregister(){

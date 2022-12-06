@@ -5,6 +5,7 @@ import { HomeService } from './home.service';
 import jwt_decode from "jwt-decode";
 import { Token } from '@angular/compiler';
 import { Route, Router } from '@angular/router';
+import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
 
 
 @Injectable({
@@ -12,12 +13,11 @@ import { Route, Router } from '@angular/router';
 })
 export class AuthService {
 
-  constructor(private home:HomeService,private toster:ToastrService,private http:HttpClient,private router:Router ) { }
+  constructor(private spinner:NgxSpinnerService ,private home:HomeService,private toster:ToastrService,private http:HttpClient,private router:Router ) { }
   submit(username:any , password:any){
    
     // console.log(email.value);
     // console.log(password.value);
-this.toster.success('Logged In Successfully')
 
           var body={
                      
@@ -35,7 +35,8 @@ this.toster.success('Logged In Successfully')
             headers:new HttpHeaders(headerDic)
           }
           debugger
-          this.http.post('https://localhost:44352/api/JWT/',body,requestOptions).subscribe((resp:any)=>{
+          console.log('ahmad');
+          this.http.post('https://localhost:44352/api/JWT',body,requestOptions).subscribe((resp:any)=>{
           debugger
           console.log("hello");
             
@@ -51,7 +52,7 @@ this.toster.success('Logged In Successfully')
           localStorage.setItem('user',JSON.stringify({...data}));
           
           if(data.Role == '3')
-          this.router.navigate(['admin/']);
+          this.router.navigate(['admin']);
           else if (data.role==2)
           this.router.navigate(['managedoctor/user']);
           else if (data.role==1)
