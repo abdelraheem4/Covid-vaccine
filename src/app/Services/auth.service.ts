@@ -34,31 +34,25 @@ export class AuthService {
           const requestOptions={
             headers:new HttpHeaders(headerDic)
           };
-          console.log('ahmad');
-          this.http.post('https://localhost:44352/api/JWT',body,requestOptions).subscribe((resp:any)=>{
-          console.log("hello");
-            
-            console.log(resp);
-            
-            const responce={
+          debugger
+          this.http.post('https://localhost:44352/api/JWT',body,requestOptions).subscribe((resp:any)=>{            
+          debugger  
+          const responce={
               token:resp.toString()
             } 
-         localStorage.setItem('token',responce.token);
-         
-          let data:any =jwt_decode(responce.token);
-
-          localStorage.setItem('user',JSON.stringify({...data}));
-          
-          if(data.Role == '3')
-          this.router.navigate(['admin/']);
-          else if (data.Role == '2')
-          this.router.navigate(['managedoctor/user']);
-          else if (data.Role== '1')
-          this.router.navigate(['about/']);
-          
-          } ,err=>{ 
-          this.toster.error(err.message.err.status);
-          })
+            localStorage.setItem('token',responce.token);
+            let data:any =jwt_decode(responce.token);
+            localStorage.setItem('user',JSON.stringify({...data}));
+            if(data.Role == "3")
+            this.router.navigate(['admin/']);
+            else if (data.Role == "2")
+            this.router.navigate(['managedoctor/user']);
+            else if (data.Role== "1")
+            this.router.navigate(['about/']);
+            
+            } ,err=>{ 
+            this.toster.error(err.message.err.status);
+            })
     
    }
 }

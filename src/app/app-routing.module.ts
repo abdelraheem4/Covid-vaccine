@@ -13,7 +13,6 @@ import { AuthorizationGuard } from './authorization.guard';
 import { MapMarkerClusterer } from '@angular/google-maps';
 //import { MapMarkerComponent } from './map-marker/map-marker.component';
 //import { MapWindowComponent } from './map-window/map-window.component';
-import { AccessModule } from './access/access.module';
 
 const routes: Routes = [ 
   {
@@ -36,13 +35,14 @@ const routes: Routes = [
 {
   path:'admin',
   loadChildren:()=>AdminModule,
-  // canActivate:[AuthorizationGuard]
+   canActivate:[AuthorizationGuard]
 
 },
 {
   path:'managedoctor',
   loadChildren:()=>DoctorModule
 },
+
 
 // {
 // path:'map',

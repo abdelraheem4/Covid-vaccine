@@ -17,11 +17,12 @@ background-size: cover; ">
                     <h1 class="mb-0 h3">Sign in </h1>
                </div>
 
-      <form  class="mt-4 con">
+      <form class="mt-4 con">
         <div class="form-group mb-4">
           <div class="input-group">
 
         <mat-form-field >
+          <mat-label>UserName</mat-label>
         <input matInput style="display:inline" type="text" 
         [formControl]="username" title="username" placeholder="username" >
 
@@ -36,7 +37,7 @@ background-size: cover; ">
     <div class="form-group mb-4">
        <div class="input-group">
       <mat-form-field >
-        <input matInput   [formControl]="password" 
+        <input matInput  [formControl]="password" 
         type="password" title="password" placeholder="Password" >
         <mat-error *ngIf="password.hasError('minlength')">
           Please enter a strong password
