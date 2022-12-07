@@ -9,14 +9,11 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
 import { AuthModule } from './auth/auth.module';
 import { ErrorComponent } from './shared/error/error.component';
 import { AuthorizationGuard } from './authorization.guard';
-<<<<<<< HEAD
 import { MapMarkerClusterer } from '@angular/google-maps';
-=======
 import { CentersComponent } from './centers/centers.component';
 //import { GoogleMapsComponent } from './google-maps/google-maps.component';
 //import { MapMarkerComponent } from './map-marker/map-marker.component';
 //import { MapWindowComponent } from './map-window/map-window.component';
->>>>>>> 1b36fc139cc87d884777949bd32c58962f4c4391
 
 const routes: Routes = [ 
   {
@@ -39,11 +36,7 @@ const routes: Routes = [
 {
   path:'admin',
   loadChildren:()=>AdminModule,
-<<<<<<< HEAD
  //canActivate:[AuthorizationGuard]
-=======
-  //  canActivate:[AuthorizationGuard]
->>>>>>> 1b36fc139cc87d884777949bd32c58962f4c4391
 
 },
 {
@@ -52,11 +45,9 @@ const routes: Routes = [
 },
 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 1b36fc139cc87d884777949bd32c58962f4c4391
+
 // {
 // path:'map',
 // component:GoogleMapsComponent

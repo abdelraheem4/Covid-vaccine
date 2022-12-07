@@ -16,11 +16,7 @@
     "@angular/compiler": "^14.2.0",
     "@angular/core": "^14.2.0",
     "@angular/forms": "^14.2.0",
-<<<<<<< HEAD
-    "@angular/google-maps": "^14.0.0-next.7",
-=======
     "@angular/google-maps": "^14.2.7",
->>>>>>> 1b36fc139cc87d884777949bd32c58962f4c4391
     "@angular/material": "^13.0.0",
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
