@@ -17,7 +17,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenInterceptor } from 'src/Interceptor/token.Interceptor';
-import { GoogleMapsModule } from '@angular/google-maps';
 import { CentersComponent } from './centers/centers.component';
 
 @NgModule({
@@ -47,7 +46,6 @@ import { CentersComponent } from './centers/centers.component';
     MatButtonModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    GoogleMapsModule
 
   
     //GoogleMapsModule

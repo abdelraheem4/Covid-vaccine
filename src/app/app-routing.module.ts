@@ -9,7 +9,6 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
 import { AuthModule } from './auth/auth.module';
 import { ErrorComponent } from './shared/error/error.component';
 import { AuthorizationGuard } from './authorization.guard';
-import { MapMarkerClusterer } from '@angular/google-maps';
 import { CentersComponent } from './centers/centers.component';
 //import { GoogleMapsComponent } from './google-maps/google-maps.component';
 //import { MapMarkerComponent } from './map-marker/map-marker.component';
