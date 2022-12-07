@@ -29,7 +29,7 @@ export class ManageUserComponent implements OnInit {
     numberofvaccines:new FormControl(),
     email:new FormControl(),
     password:new FormControl(),
-    roleid:new FormControl()
+    // roleid:new FormControl()
   })
 
   ngOnInit(): void {
