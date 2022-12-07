@@ -93,7 +93,7 @@
         <th scope="col">Email</th>
         <th scope="col">Password</th>
         <th scope="col">Age</th>
-        <th scope="col">Role ID</th>
+        <!-- <th scope="col">Role ID</th> -->
         <th scope="col">Image</th>
 
 
@@ -113,7 +113,7 @@
         <td>{{obj.email}}</td>
         <td>{{obj.password}}</td>
         <td>{{obj.age}}</td>
-        <td>{{obj.roleid}}</td>
+        <!-- <td>{{obj.roleid}}</td> -->
         <td><img src="../../../assets/images/{{obj.image}}" width="100" height="100">
         </td>
         
@@ -208,7 +208,7 @@
             </mat-error>
             </mat-form-field>
             <br>
-            <mat-form-field class="example-full-width" appearance="fill">
+            <!-- <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Role id</mat-label>
             <input type="number" matInput formControlName="roleid"
             [(ngModel)]="p_data.roleid">
@@ -217,7 +217,7 @@
                 Role id <strong>required</strong>
             </mat-error>
             </mat-form-field>
-            <br>
+            <br> -->
 
             <input type="file" #file formControlName="image" [(ngModel)]="p_data.image" (change)="uploadfile(file.files)"> 
     </form>
