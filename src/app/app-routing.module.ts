@@ -9,6 +9,7 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
 import { AuthModule } from './auth/auth.module';
 import { ErrorComponent } from './shared/error/error.component';
 import { AuthorizationGuard } from './authorization.guard';
+import { MapMarkerClusterer } from '@angular/google-maps';
 
 const routes: Routes = [ 
   {
@@ -31,14 +32,13 @@ const routes: Routes = [
 {
   path:'admin',
   loadChildren:()=>AdminModule,
-  canActivate:[AuthorizationGuard]
+ //canActivate:[AuthorizationGuard]
 
 },
 {
   path:'managedoctor',
   loadChildren:()=>DoctorModule
 },
-
 
 
 

@@ -1,8 +1,12 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/Services/user.service';
+import { VaccinesService } from 'src/app/Services/vaccines.service';
+import { HomeService } from 'src/app/Services/home.service';
+import { DoctorService } from 'src/app/Services/doctor.service';
+
 
 @Component({
   selector: 'app-manage-vaccine',
@@ -13,7 +17,7 @@ export class ManageVaccineComponent implements OnInit {
   @ViewChild('callUpdateDailog') callUpdateDailog!:TemplateRef<any> 
   @ViewChild('callDeleteDailog') callDeleteDailog!:TemplateRef<any> 
   num:number=0;
-  constructor(private router:Router,public user:UserService,private dialog:MatDialog) { }
+  constructor(private router:Router,public doctor:DoctorService,public home:HomeService,public vaccines:VaccinesService,public user:UserService,private dialog:MatDialog) { }
 
 
   updateForm:FormGroup= new FormGroup({
@@ -26,21 +30,45 @@ export class ManageVaccineComponent implements OnInit {
     numberofvaccines:new FormControl(),
     email:new FormControl(),
     password:new FormControl(),
-    roleid:new FormControl()
+    roleid:new FormControl(),
+    vaccinename:new FormControl('', [Validators.required]),
+
   })
+
+  updateVaccine:FormGroup= new FormGroup({
+    
+    vaccineid: new FormControl(),
+    vaccinename:new FormControl('',Validators.required),
+    vaccinedoses:new FormControl,
+    vaccineexp:new FormControl,
+
+  })
+  updatecenter:FormGroup= new FormGroup({
+
+    centerid: new FormControl(),
+    centername: new FormControl('', [Validators.required]),
+    centerusercapacity: new FormControl(),
+    centervaccinecapacity: new FormControl(),
+    centeraddres: new FormControl(),
+    vacCenterid: new FormControl()
+
+  })
+
   ngOnInit(): void {
     this.user.getALLUser();
   }
 
 
   p_data :any={};
+  c_data:any={};
+  v_data:any={};
   openUpdateDailog(obj:any)
   {
+    debugger
     this.p_data={
       userid:obj.userid,
       fullname:obj.fullname,
       username:obj.username,
-     
       phonenumber:obj.phonenumber,
       age:obj.age,
       numberofvaccines:obj.numberofvaccines,
@@ -48,19 +76,36 @@ export class ManageVaccineComponent implements OnInit {
       password:obj.password,
       roleid:obj.roleid,
       image:obj.image,
+      vaccinename:obj.vaccinename
+    }
+    //  this.v_data={
+    //   vaccineid:obj.vaccineid,
+    //   vaccinename:obj.vaccinename,
+    //  }
+    // this.c_data={
+    //   centerid:obj.centerid,
+    //   centername:obj.centername,
+    //   centeraddres:obj.centeraddres,
+    //   vacCenterid:obj.vacCenterid
+
+    // }
 
 
-  }
+
+  
   this.updateForm.controls['userid'].setValue(this.p_data.userid);
   this.updateForm.controls['fullname'].setValue(this.p_data.fullname);
   this.updateForm.controls['username'].setValue(this.p_data.username);
   this.updateForm.controls['phonenumber'].setValue(this.p_data.phonenumber);
-  this.updateForm.controls['age'].setValue(this.p_data.age);
   this.updateForm.controls['email'].setValue(this.p_data.email);
   this.updateForm.controls['roleid'].setValue(this.p_data.roleid);
   this.updateForm.controls['password'].setValue(this.p_data.password);
   this.updateForm.controls['image'].setValue(this.p_data.image);
 
+
+  // this.updateVaccine.controls['vaccineid'].setValue(this.v_data.vaccineid);
+  
+  
   this.dialog.open(this.callUpdateDailog);
   }
 
@@ -70,6 +115,8 @@ export class ManageVaccineComponent implements OnInit {
   {
     debugger
     this.user.updateUser(this.updateForm.value);
+   // this.vaccines.UpdateVaccine(this.updateVaccine.value);
+    
   }
 
   openDeleteDailog(id:number)
@@ -89,10 +136,12 @@ export class ManageVaccineComponent implements OnInit {
   }
 
   searchInput(ev:any){
+    debugger
     this.num=ev.target.value;
   }
   Search(){
     debugger
+    
     this.user.srarchByid(this.num);
   }
 }

@@ -8,6 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class DoctorService {
   userReservation:any=[{}];
+
+  userinfo:any=[{}];
   constructor(private http:HttpClient,private spinner :NgxSpinnerService ,private toastr:ToastrService) { }
 
   getALLUserReservation(){
@@ -15,6 +17,20 @@ export class DoctorService {
     this.spinner.show();
     this.http.get('https://localhost:44352/api/userReservation').subscribe((res)=>{
       this.userReservation=res;
+      this.spinner.hide();
+      this.toastr.success('Data Retrieved!!');
+    },err=>{
+      this.spinner.hide();
+      this.toastr.error(err.message,err.status);
+    }
+    )
+  }
+
+
+  getUserinfo(){
+    this.spinner.show();
+    this.http.get('https://localhost:44352/api/UserInfo').subscribe((res)=>{
+      this.userinfo=res;
       this.spinner.hide();
       this.toastr.success('Data Retrieved!!');
     },err=>{

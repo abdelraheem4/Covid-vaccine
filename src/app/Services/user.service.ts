@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 export class UserService {
   User:any=[{}];
 doctor:any=[{}];
+sarch:any=[{}];
   display_image:any;
   constructor(private http:HttpClient,private spinner :NgxSpinnerService ,private toastr:ToastrService) { }
 
@@ -106,11 +107,11 @@ srarchByid(num:number)
 {
   this.spinner.show();
   debugger;
-  this.http.get('https://localhost:44352/api/UserAccount/GetById/'+ num).subscribe((res:any)=>{
-      
-      this.User=[res];
+  this.http.get('https://localhost:44352/api/UserAccount/GetById/'+num).subscribe((res:any)=>{
+      debugger
+      this.User =[ res] ;
       this.spinner.hide();
-      this.toastr.success('Successfully !!');
+      this.toastr.success('Successfully sarch !!');
     },err=>{
       this.spinner.hide();
       this.toastr.error(err.message,err.status);

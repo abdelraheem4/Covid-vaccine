@@ -19,12 +19,13 @@ userReservation: any;
   updateForm:FormGroup = new FormGroup ({
     userid: new FormControl(),
     reserveid: new FormControl(),
-    actualdatedose1:new FormControl,
-    actualdatedose2:new FormControl,
-    massage:new FormControl,
-    status:new FormControl,
+    actualdatedose1:new FormControl(),
+    actualdatedose2:new FormControl(),
+    massage:new FormControl(),
+    status:new FormControl(),
 
   })
+  
   ngOnInit(): void {
     this.doctor.getALLUserReservation();
     
