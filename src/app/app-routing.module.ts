@@ -9,14 +9,10 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
 import { AuthModule } from './auth/auth.module';
 import { ErrorComponent } from './shared/error/error.component';
 import { AuthorizationGuard } from './authorization.guard';
-<<<<<<< HEAD
 import { CentersComponent } from './centers/centers.component';
-=======
 //import { GoogleMapsComponent } from './google-maps/google-maps.component';
-import { MapMarkerClusterer } from '@angular/google-maps';
 //import { MapMarkerComponent } from './map-marker/map-marker.component';
 //import { MapWindowComponent } from './map-window/map-window.component';
->>>>>>> db0103c58df9c7975adb7416cf210fb9208d914c
 
 const routes: Routes = [ 
   {
