@@ -17,7 +17,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenInterceptor } from 'src/Interceptor/token.Interceptor';
+<<<<<<< HEAD
 import { CentersComponent } from './centers/centers.component';
+=======
+// import { GoogleMapsComponent } from './google-maps/google-maps.component';
+// import { GoogleMapsModule } from '@angular/google-maps';
+//import { MapMarkerComponent } from './map-marker/map-marker.component';
+//import { MapWindowComponent } from './map-window/map-window.component'
+>>>>>>> db0103c58df9c7975adb7416cf210fb9208d914c
 
 @NgModule({
   declarations: [
@@ -26,8 +33,14 @@ import { CentersComponent } from './centers/centers.component';
     PreventionComponent,
     SymptomsComponent,
     AboutComponent,
+<<<<<<< HEAD
     CentersComponent,
   
+=======
+    //GoogleMapsComponent,
+    //MapMarkerComponent,
+    //MapWindowComponent,
+>>>>>>> db0103c58df9c7975adb7416cf210fb9208d914c
 
   ],
   imports: [
@@ -44,7 +57,11 @@ import { CentersComponent } from './centers/centers.component';
     MatButtonModule,
     MatDialogModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
   
+=======
+    //GoogleMapsModule
+>>>>>>> db0103c58df9c7975adb7416cf210fb9208d914c
 ],
 exports: [],
   providers: [{

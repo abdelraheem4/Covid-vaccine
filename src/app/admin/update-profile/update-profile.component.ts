@@ -7,34 +7,30 @@ import { UserService } from 'src/app/Services/user.service';
 import { CreateUserComponent } from '../create-user/create-user.component';
 
 @Component({
-  selector: 'app-manage-user',
-  templateUrl: './manage-user.component.html',
-  styleUrls: ['./manage-user.component.css']
+  selector: 'app-update-profile',
+  templateUrl: './update-profile.component.html',
+  styleUrls: ['./update-profile.component.css']
 })
-export class ManageUserComponent implements OnInit {
+export class UpdateProfileComponent implements OnInit {
 
-  constructor(private router:Router,public user:UserService,private dialog:MatDialog) { }
+   constructor(private router:Router,public user:UserService,private dialog:MatDialog) { }
   @ViewChild('callUpdateDailog') callUpdateDailog!:TemplateRef<any> 
   @ViewChild('callDeleteDailog') callDeleteDailog!:TemplateRef<any> 
-
-
-
+ 
   updateForm:FormGroup= new FormGroup({
     userid:new FormControl(),
     fullname:new FormControl(),
     username:new FormControl(),
-    image:new FormControl(),
-    phonenumber:new FormControl(),
+     phonenumber:new FormControl(),
     age:new FormControl(),
     numberofvaccines:new FormControl(),
     email:new FormControl(),
     password:new FormControl(),
-    // roleid:new FormControl()
-  })
+   })
 
   ngOnInit(): void {
     this.user.getALLUser();
-   
+  
   }
 
 
@@ -50,24 +46,17 @@ export class ManageUserComponent implements OnInit {
       userid:obj.userid,
       fullname:obj.fullname,
       username:obj.username,
-     
       phonenumber:obj.phonenumber,
       age:obj.age,
       numberofvaccines:obj.numberofvaccines,
       email:obj.email,
       password:obj.password,
-      roleid:obj.roleid,
-      image:obj.image,
-
+ 
 
   }
   this.updateForm.controls['userid'].setValue(this.p_data.userid);
   this.dialog.open(this.callUpdateDailog);
   }
-
-
-
-
   
   savedata()
   {
@@ -75,7 +64,6 @@ export class ManageUserComponent implements OnInit {
     this.user.updateUser(this.updateForm.value);
   }
 
- 
   uploadfile(file:any)
   {
     if(file.length==0)
@@ -90,7 +78,7 @@ export class ManageUserComponent implements OnInit {
   {
     const dialogRef=this.dialog.open(this.callDeleteDailog);
      dialogRef.afterClosed().subscribe((result)=>{
-       if(result!=undefined)
+    if(result!=undefined)
       {
         if(result=='yes')
        { debugger

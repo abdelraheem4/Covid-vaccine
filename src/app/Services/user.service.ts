@@ -48,6 +48,7 @@ doctor:any=[{}];
 
 
   createUser(body:any){
+    body.roleid = 1;  
     body.image=this.display_image;
     this.spinner.show();
     debugger

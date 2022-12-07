@@ -12,6 +12,8 @@ import { TablesComponent } from './tables/tables.component';
 import { AboutComponent } from '../about/about.component';
 import { ManageAboutComponent } from './manage-about/manage-about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserVaccineReportComponent } from './user-vaccine-report/user-vaccine-report.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 const routes: Routes = [
   {
@@ -66,7 +68,16 @@ const routes: Routes = [
     path:'manageAbout',
     component:ManageAboutComponent
     
-  }
+  },
+  {
+    path:'userVaccineReport',
+    component:UserVaccineReportComponent
+    
+  },
+  {
+    path:'update',
+    component:UpdateProfileComponent
+  },
   
 ];
 
