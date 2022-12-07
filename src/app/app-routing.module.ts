@@ -35,7 +35,7 @@ const routes: Routes = [
 {
   path:'admin',
   loadChildren:()=>AdminModule,
-   canActivate:[AuthorizationGuard]
+  //  canActivate:[AuthorizationGuard]
 
 },
 {
