@@ -50,7 +50,7 @@ export class AuthService {
           localStorage.setItem('user',JSON.stringify({...data}));
           
           if(data.Role == '3')
-          this.router.navigate(['admin/userVaccineReport']);
+          this.router.navigate(['admin/']);
           else if (data.Role == '2')
           this.router.navigate(['managedoctor/user']);
           else if (data.Role== '1')
