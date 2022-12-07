@@ -13,7 +13,6 @@ export class DoctorService {
   constructor(private http:HttpClient,private spinner :NgxSpinnerService ,private toastr:ToastrService) { }
 
   getALLUserReservation(){
-    
     this.spinner.show();
     this.http.get('https://localhost:44352/api/userReservation').subscribe((res)=>{
       this.userReservation=res;

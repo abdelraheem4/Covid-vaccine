@@ -17,7 +17,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenInterceptor } from 'src/Interceptor/token.Interceptor';
+<<<<<<< HEAD
 import { GoogleMapsModule } from '@angular/google-maps';
+=======
+import { CentersComponent } from './centers/centers.component';
+// import { GoogleMapsComponent } from './google-maps/google-maps.component';
+// import { GoogleMapsModule } from '@angular/google-maps';
+//import { MapMarkerComponent } from './map-marker/map-marker.component';
+//import { MapWindowComponent } from './map-window/map-window.component'
+>>>>>>> 1b36fc139cc87d884777949bd32c58962f4c4391
 
 @NgModule({
   declarations: [
@@ -26,7 +34,14 @@ import { GoogleMapsModule } from '@angular/google-maps';
     PreventionComponent,
     SymptomsComponent,
     AboutComponent,
+<<<<<<< HEAD
    
+=======
+    CentersComponent,
+  
+  
+
+>>>>>>> 1b36fc139cc87d884777949bd32c58962f4c4391
   ],
   imports: [
     BrowserModule,
@@ -42,8 +57,14 @@ import { GoogleMapsModule } from '@angular/google-maps';
     MatButtonModule,
     MatDialogModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
     GoogleMapsModule
+=======
+  
+    //GoogleMapsModule
+>>>>>>> 1b36fc139cc87d884777949bd32c58962f4c4391
 ],
+exports: [],
   providers: [{
     provide:HTTP_INTERCEPTORS,
     useClass:TokenInterceptor,

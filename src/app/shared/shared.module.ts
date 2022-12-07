@@ -30,7 +30,6 @@ import { ErrorComponent } from './error/error.component';
     MatCardModule,
     MatButtonModule,
     MatDialogModule,
-
     HttpClientModule
   ],
   exports:[
