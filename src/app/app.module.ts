@@ -17,6 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenInterceptor } from 'src/Interceptor/token.Interceptor';
+import { CentersComponent } from './centers/centers.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { TokenInterceptor } from 'src/Interceptor/token.Interceptor';
     PreventionComponent,
     SymptomsComponent,
     AboutComponent,
+    CentersComponent,
+  
 
   ],
   imports: [
@@ -40,8 +43,10 @@ import { TokenInterceptor } from 'src/Interceptor/token.Interceptor';
     MatCardModule,
     MatButtonModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+  
 ],
+exports: [],
   providers: [{
     provide:HTTP_INTERCEPTORS,
     useClass:TokenInterceptor,

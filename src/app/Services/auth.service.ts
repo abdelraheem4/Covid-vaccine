@@ -9,9 +9,7 @@ import jwt_decode from "jwt-decode";
 })
 export class AuthService {
   
-  constructor(private home :HomeService, 
-    
-    private toastr:ToastrService,private router:Router,private http:HttpClient) { }
+  constructor(private home :HomeService,private toastr:ToastrService,private router:Router,private http:HttpClient) { }
   submit(username:any, password:any)
   {
     var body ={
@@ -25,7 +23,7 @@ export class AuthService {
     const requestOptions={
       headers: new HttpHeaders(headerDic)
     }
-    this.http.post('https://localhost:44352/api/JWT/auth/',body,requestOptions).subscribe((resp:any)=>{
+    this.http.post('https://localhost:44352/api/JWT/auth',body,requestOptions).subscribe((resp:any)=>{
       const responce={
         token :resp.toString()
       }
@@ -33,16 +31,16 @@ export class AuthService {
       let data :any=jwt_decode(responce.token);
       localStorage.setItem('user',JSON.stringify({...data}));
       console.log(data)
-      if(data.role=="admin")
-      this.router.navigate(['']);
-      else if (data.role=='user')
+      if(data.role==3){
+      console.log("succ")
+      this.router.navigate(['admin']);}
+      else if (data.role==1)
       this.router.navigate(['home/']);
       console.log(data.role)
-
-      
-
     },err=>{
       this.toastr.error(err.message,err.status);
     })
   }
 }
+
+

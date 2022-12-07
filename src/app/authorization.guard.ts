@@ -7,49 +7,51 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthorizationGuard implements CanActivate {
-  constructor(private toster:ToastrService,private route:Router){}
+  constructor(private toastr:ToastrService,private routr:Router){}
   
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-   console.log(state);
+      console.log(state);
    const token=localStorage.getItem('token');
-   if (token)
+   if(token)
+{
+  if(state.url.indexOf('admin')>=0)
+  {
+   let user:any=localStorage.getItem('user');
+    if(user)
     {
-      if(state.url.indexOf('admin')>=0)
-      {
-       let user:any =  localStorage.getItem('user') ;
-        if(user) 
-        {
-          user=JSON.parse(user);
-          if(user.role==3)
-         {
-            return true;
-          }
-           else 
-           {
-           this.toster.warning('Sorry , this page for Admin');
-           this.route.navigate(['security/login']);
-           localStorage.clear();
-           return false;
-           }
-
-        } 
-        else{
-          this.toster.warning('Sorry , this page for Admin');
-          this.route.navigate(['security/login']);
-          return false;
-        }
+      user=JSON.parse(user);
+      if(user.role=='admin'){
+        this.toastr.success('Welcome admin ');
+        return true;
       }
-      return true;
+      else {
+        this.toastr.warning('Sorry , this page for admin');
+        this.routr.navigate(['security/login']);
+        localStorage.clear();
+        return false;
+      }
+   
     }
+    else {
+      this.toastr.warning('Sorry , this page for teacher');
+      this.routr.navigate(['course']);
+      return false;
+    }
+
+  }
+
+    return true;
+}
+  
     else 
     {
-      this.route.navigate(['security/']);
-      this.toster.warning('Please Login');
-      return false;
-
+      this.routr.navigate(['security/login']);
+      this.toastr.warning('Please Login');
+      return false ;
     }
+   
   }
   
 }

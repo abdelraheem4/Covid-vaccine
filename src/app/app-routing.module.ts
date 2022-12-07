@@ -9,6 +9,7 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
 import { AuthModule } from './auth/auth.module';
 import { ErrorComponent } from './shared/error/error.component';
 import { AuthorizationGuard } from './authorization.guard';
+import { CentersComponent } from './centers/centers.component';
 
 const routes: Routes = [ 
   {
@@ -43,10 +44,16 @@ const routes: Routes = [
   loadChildren:()=>AuthModule
 },
 {
+  path:'centers',
+  component:CentersComponent
+
+},
+{
   path:'**',
   component:ErrorComponent
 
 },
+
 
 
 ];

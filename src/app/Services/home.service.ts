@@ -10,7 +10,7 @@ export class HomeService {
  
   display_image:any;
   allTestmonial:any[] = [];
-  allVacciniationCentre:any[] = [];
+  allVacciniationCentre:any=[{}];
   allHome:any[] = [];
   allAbout:any[] = [];
   logoImage:any;
@@ -30,7 +30,6 @@ export class HomeService {
       this.http.get('https://localhost:44352/api/testmonial/GetAll').subscribe((resp:any)=>
       {
        this.allTestmonial = resp;
-       console.log(this.allTestmonial);
        this.spinner.hide();
        this.toastr.success('All Testmonials');
      },
