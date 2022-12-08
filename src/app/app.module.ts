@@ -26,15 +26,8 @@ import { CentersComponent } from './centers/centers.component';
     PreventionComponent,
     SymptomsComponent,
     AboutComponent,
-<<<<<<< HEAD
     CentersComponent,
   
-=======
-   
-    CentersComponent,
-  
-  
->>>>>>> 4441825b3685ed5bb034e4e2da09cf2afddabf1b
 
   ],
   imports: [
@@ -51,13 +44,7 @@ import { CentersComponent } from './centers/centers.component';
     MatButtonModule,
     MatDialogModule,
     BrowserAnimationsModule,
-<<<<<<< HEAD
   
-=======
-
-  
-    //GoogleMapsModule
->>>>>>> 4441825b3685ed5bb034e4e2da09cf2afddabf1b
 ],
 exports: [],
   providers: [{
