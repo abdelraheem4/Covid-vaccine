@@ -1,5 +1,9 @@
 <app-sidebar></app-sidebar>
-
+<br>
+ <div class="container-lg" style="margin-right:30px ;"  >
+  <h1 style="font-family: serif; margin-left: 400px;"> Manage User </h1>
+</div> 
+<br><br><br>
 <!-- 
 <link href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css" rel="stylesheet" />
@@ -73,8 +77,8 @@
    
 </header> -->
 
+<div class="container-lg" style="margin-right:30px ;">
 
-<div class="pcoded-main-container">
     <div class="pcoded-wrapper">
         <div class="pcoded-content">
             <div class="pcoded-inner-content">
@@ -117,16 +121,19 @@
         <td><img src="../../../assets/images/{{obj.image}}" width="100" height="100">
         </td>
         
-        <td>
-        <button (click)="openUpdateDailog(obj)">Update</button>
-         <button (click)="openDeleteDailog(obj.userid)">Delete</button> 
+          </tr>
+        
+        
 
-        </td>
+          <br><br><br><br><br><br>
 
-
-      </tr>
+          <button (click)="openUpdateDailog(obj)">Update</button> 
+           <button (click)="openDeleteDailog(obj.userid)">Delete</button> 
+  
+    
       
-    </tbody>
+    </tbody> 
+    
   </table>
 
                 

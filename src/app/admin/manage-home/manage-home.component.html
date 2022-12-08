@@ -1,4 +1,10 @@
 <app-sidebar></app-sidebar>
+
+<br>
+ <div class="container-lg" style="margin-right:30px ;"  >
+  <h1 style="font-family: serif; margin-left: 400px;"> Manage Home </h1>
+</div> 
+<br> 
 <!--<form class="form-inline" style="margin-top: 3%;">
     <div class="form-group mx-sm-3 mb-2">
    <label for="inputText" class="sr- only">Testmonial Name</label>
@@ -6,8 +12,8 @@
    </div> 
     <button type="submit" (click)="search()" class="btn btn-success">Search</button>
    </form>-->
-   <div>
- <button style=" margin-top: 20%;" (click)="openCreateDialog()">Create New</button>
+   <div class="container-lg" style="margin-right:130px ;">
+    <button style=" margin-top: 20%;" (click)="openCreateDialog()">Create New</button>
   <table class="table" style="width:5%; ">
      
       <thead>
@@ -24,8 +30,8 @@
           <th scope="col">newsdesc3</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let obj of home.allHome">
+      <tbody  *ngFor="let obj of home.allHome">
+        <tr>
             <th scope="col"><img src="../../../assets/images/{{obj.imagelogo}}" alt=""> </th><th scope="col">{{obj.littletitle1}}</th>
             <td scope="col">{{obj.title1}}</td>
             <th scope="col">{{obj.descriptiontitle1}}</th><th scope="col">{{obj.imagetitle1}}</th>
@@ -39,10 +45,11 @@
             <th scope="col"><img src="../../../assets/images/{{obj.newsimage3}}"></th>
             <th scope="col">{{obj.newsdesc1}}</th> <th scope="col">{{obj.newsdesc2}}</th>
             <th scope="col">{{obj.newsdesc3}}</th>
-          <td>
-            <button (click)="openUpdateDialog(obj)">Update</button>
-            <button  (click)="openDeleteDialog(obj.homeid)">Delete</button></td>
+        
+           
         </tr>
+        <button (click)="openUpdateDialog(obj)">Update</button>
+        <button  (click)="openDeleteDialog(obj.homeid)">Delete</button>
           </tbody>
     </table>
   </div>

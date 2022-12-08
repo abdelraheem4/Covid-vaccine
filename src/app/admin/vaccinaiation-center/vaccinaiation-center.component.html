@@ -1,4 +1,9 @@
 <app-sidebar></app-sidebar>
+<br>
+ <div class="container-lg" style="margin-right:30px ;"  >
+  <h1 style="font-family: serif; margin-left: 400px;"> Manage Vaccine Center  </h1>
+</div> 
+<br><br><br>
 <!--<form class="form-inline" style="margin-top: 3%;">
     <div class="form-group mx-sm-3 mb-2">
    <label for="inputText" class="sr- only">Testmonial Name</label>
@@ -7,7 +12,8 @@
     <button type="submit" (click)="search()" class="btn btn-success">Search</button>
    </form>-->
   <button (click)="openCreateDialog()">Create New</button>
-  <table class="table">
+  <table class="table container-lg" style="margin-right:30px ;">
+
       <thead>
         <tr>
           <th scope="col">CenterName</th>
@@ -16,16 +22,19 @@
           <th scope="col">CenterAddress</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let obj of home.allVacciniationCentre">
+      <tbody *ngFor="let obj of home.allVacciniationCentre">
+        <tr >
           <td>{{obj.centername}}</td>
           <td>{{obj.centerusercapacity}}</td>
           <td>{{obj.centervaccinecapacity}}</td>
           <td>{{obj.centeraddres}}</td>
-          <td>
-            <button (click)="openUpdateDialog(obj)">Update</button>
-            <button  (click)="openDeleteDialog(obj.centerid)">Delete</button></td>
+
+          
         </tr>
+        <br><br><br> 
+
+        <button (click)="openUpdateDialog(obj)">Update</button>
+        <button  (click)="openDeleteDialog(obj.centerid)">Delete</button> 
           </tbody>
     </table>
   

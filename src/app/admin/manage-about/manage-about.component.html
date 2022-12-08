@@ -1,5 +1,11 @@
-<!--<app-sidebar></app-sidebar>-->
-<div>
+<app-sidebar></app-sidebar>
+<br>
+ <div class="container-lg" style="margin-right:30px ;"  >
+  <h1 style="font-family: serif; margin-left: 400px;"> Manage About </h1>
+</div> 
+<br> 
+<div class="container-lg" style="margin-right:130px ;">
+
     <button style=" margin-top: 20%;" (click)="openCreateDialog()">Create New</button>
      <table class="table" style="width:5%; ">
         
@@ -19,8 +25,8 @@
              <th scope="col">point2desc3</th> <th scope="col">protectImage</th>
            </tr>
          </thead>
-         <tbody>
-           <tr *ngFor="let obj of home.allAbout">
+         <tbody *ngFor="let obj of home.allAbout">
+           <tr >
                <th scope="col">{{obj.littletitle1}}</th><th scope="col">{{obj.title1}}</th>
                <th scope="col">{{obj.descriptiontitle1}}</th>
                <th scope="col"><img src="../../../assets/images/{{obj.imagetitle1}}" alt=""></th>
@@ -37,11 +43,10 @@
                <th scope="col">{{obj.point2desc1}}</th><th scope="col">{{obj.point2desc2}}</th>
                <th scope="col">{{obj.point2desc3}}</th>
                <th scope="col"><img src="../../../assets/images/{{obj.protectimage}}" alt=""></th>
- 
-             <td>
+             </tr>
+             <br><br><br>
                <button (click)="openUpdateDialog(obj)">Update</button>
-               <button  (click)="openDeleteDialog(obj.aboutid)">Delete</button></td>
-           </tr>
+              <button  (click)="openDeleteDialog(obj.aboutid)">Delete</button> 
              </tbody>
        </table>
      </div>

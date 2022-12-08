@@ -1,64 +1,76 @@
 <app-sidebar></app-sidebar>
-
+<br>
+ <div class="container-lg" style="margin-right:30px ;"  >
+  <h1 style="font-family: serif; margin-left: 400px;">Manage Reservation </h1>
+</div> 
+<br><br><br>
 <table tyle="display:inline-block ;">
-  
-    <div  class="table">
-      <button (click)="openCreateDialog()">Creat new</button>
+  <button (click)="openCreateDialog()">Creat new</button>
+  <br><br>
+    <div   class="form-row">
 <form style="margin-left: 80px;">
   <legend>First Dose</legend>
-  <label for="first">From</label>
+     <div class="form-group col-md-6">
+    <label for="first">From</label>
   <input type="date"  (change)="searchInputFromFirst($event)" [value]="datefromFirst" name="first"><br>
+</div>
+
+<div class="form-group col-md-6">
   <label for="second">To</label>
-  <input type="date"  (change)="searchInputToFirst($event)" [value]="datetoFirst" name="second"><br>
+  <input type="date"  (change)="searchInputToFirst($event)" [value]="datetoFirst" name="second"><br><br>
   <button (click)="SearchBetweenFirstDose()">Search</button>
-</form>
+</div>
+ </form>
+ 
 <form style="margin-left: 80px;">
   <legend>Second Dose</legend>
+  <div class="form-group col-md-6">
   <label for="first">From</label>
   <input type="date"  (change)="searchInputFromSecond($event)" [value]="datefromSecond" name="first"><br>
+</div>
+
+<div class="form-group col-md-6">
   <label for="second">To</label>
-  <input type="date"  (change)="searchInputToSecond($event)" [value]="datetoSecond" name="second"><br>
+  <input type="date"  (change)="searchInputToSecond($event)" [value]="datetoSecond" name="second"><br><br>
   <button (click)="SearchBetweenSecondDose()">Search</button>
+</div>
 </form>
 
-
-      <div  class="row header">
-        <div class="cell">
+ 
+      <div class="form-row">
+        <div class="form-group col-md-6">
           First Dose date
         </div>
-        <div class="cell">
+        <div class="form-group col-md-6">
           Secound Dose date
         </div>
-        
-        
-
       </div>
       
       <div *ngFor="let obj of reservation.reservation" class="row">
         
         <div class="cell" data-title="Name">
             {{obj.actualdatedose1}}
-                </div>
+           </div>
         <div class="cell" data-title="Age">
             {{obj.actualdatedose2}}
-            
-        </div>
+          </div>
+
+          <br><br><br>
         <button (click)="openUpdateDailog(obj)">update</button>
         <button (click)="openDelteDailog(obj.Id)">delete</button>
-        <div class="cell" data-title="Location">
-            {{obj.Id}}        </div>
-            
-
-      </div>
+        <div   data-title="Location">
+            {{obj.Id}} 
+        </div>
+  </div>
       
     </div>
   </table>
 <ng-template #callUpdateDailog>
-  <h2 mat-dialog-title>update reservation </h2>
+  <h2 mat-dialog-title>Update Reservation </h2>
   <mat-dialog-content class="mat-typography">
      <form class="example-form" [formGroup]="updateForm" >
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label> First dose</mat-label>
+        <mat-label> First Dose</mat-label>
         <input type="date" matInput formControlName="actualdatedose1"
         [(ngModel)]="P_data.actualdatedose1">
         <mat-error *ngIf="updateForm.controls['actualdatedose1'].hasError('required')">
@@ -68,7 +80,7 @@
   
   <br>
   <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label> Second dose</mat-label>
+    <mat-label> Second Dose</mat-label>
     <input type="date" matInput formControlName="actualdatedose2"
     [(ngModel)]="P_data.actualdatedose2">
     <mat-error *ngIf="updateForm.controls['actualdatedose2'].hasError('required')">

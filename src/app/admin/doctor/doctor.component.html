@@ -1,6 +1,10 @@
 <app-sidebar></app-sidebar>
-
-<div class="pcoded-main-container">
+<br>
+ <div class="container-lg" style="margin-right:30px ;"  >
+  <h1 style="font-family: serif; margin-left: 400px;"> Manage Doctor </h1>
+</div> 
+<br><br><br>
+<div class="container-lg" style="margin-right:30px ;">
     <div class="pcoded-wrapper">
         <div class="pcoded-content">
             <div class="pcoded-inner-content">
@@ -42,15 +46,11 @@
         <td><img src="../../../assets/images/{{obj.image}}" width="100" height="100">
         </td>
         
-        <td>
-        <button (click)="openUpdateDailog(obj)">Update</button>
-         <button (click)="openDeleteDailog(obj.userid)">Delete</button> 
-
-        </td>
-
-
+    
       </tr>
-      
+      <br><br>
+        <button (click)="openUpdateDailog(obj)">Update</button>
+         <button (click)="openDeleteDailog(obj.userid)">Delete</button>
     </tbody>
   </table>
 
