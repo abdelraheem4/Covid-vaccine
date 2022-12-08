@@ -1,4 +1,13 @@
 <app-sidebar></app-sidebar>
+<br>
+ <div class="container-lg" style="margin-right:30px ;"  >
+  <h1 style="font-family: serif; margin-left: 400px;"> Vaccine Report </h1>
+</div> 
+<br> <br>
+<div class="container-lg" style="margin-right:30px ;">
+  <div class="pcoded-wrapper">
+      <div class="pcoded-content">
+          <div class="pcoded-inner-content">
 
 <table class="table" id="example">
     <thead>
@@ -11,8 +20,8 @@
         <th scope="col">Second Date Dose</th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let obj of vaccineReport.vaccineCertifcate">
+    <tbody *ngFor="let obj of vaccineReport.vaccineCertifcate">
+      <tr >
         <td>{{obj.fullname}}</td>
         <td>{{obj.numberofvaccines}}</td>
         <td>{{obj.vaccinename}}</td>
