@@ -6,8 +6,7 @@
                 <div 
                   #mapContainer id="map">
               </div>
-             
-
+              <button  (click)="ngOnInit()"></button>
             </div>
            
                 
@@ -18,7 +17,7 @@
       <div *ngFor="let obj of home.allVacciniationCentre" class="card">
             <div  class="icon"><i class="material-symbols-outlined">medical_services</i></div>
             <p class="title">{{obj.centername}}</p>
-            <p class="text">{{obj.centerusercapacity}}</p>
+            <p class="text">{{obj.centeraddres}}</p>
             <p class="text">phone: 0782592004.</p>
           </div>
     </div>

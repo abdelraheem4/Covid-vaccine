@@ -40,6 +40,7 @@ this.http.post('https://localhost:44352/api/vaccines',body).subscribe((resp)=>{
   }
 
   UpdateVaccine(body:any){
+    debugger
     this.spinner
     this.http.put('https://localhost:44352/api/vaccines',body).subscribe((resp)=>{
       this.spinner.hide();

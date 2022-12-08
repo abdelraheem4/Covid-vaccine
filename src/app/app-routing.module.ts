@@ -10,6 +10,12 @@ import { AuthModule } from './auth/auth.module';
 import { ErrorComponent } from './shared/error/error.component';
 import { AuthorizationGuard } from './authorization.guard';
 import { CentersComponent } from './centers/centers.component';
+<<<<<<< HEAD
+=======
+//import { GoogleMapsComponent } from './google-maps/google-maps.component';
+//import { MapMarkerComponent } from './map-marker/map-marker.component';
+//import { MapWindowComponent } from './map-window/map-window.component';
+>>>>>>> 4441825b3685ed5bb034e4e2da09cf2afddabf1b
 
 const routes: Routes = [ 
   {
@@ -32,13 +38,16 @@ const routes: Routes = [
 {
   path:'admin',
   loadChildren:()=>AdminModule,
-   canActivate:[AuthorizationGuard]
+ //canActivate:[AuthorizationGuard]
 
 },
 {
   path:'managedoctor',
   loadChildren:()=>DoctorModule
 },
+
+
+
 
 
 // {

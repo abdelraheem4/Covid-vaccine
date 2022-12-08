@@ -70,24 +70,17 @@
    
 </header> -->
 
-
+<!-- 
 <div class="pcoded-main-container">
     <div class="pcoded-wrapper">
         <div class="pcoded-content">
-            <div class="pcoded-inner-content">
+            <div class="pcoded-inner-content"> -->
 
-                 
-<!-- <button (click)="opendialog()">Create New</button> -->
-<form class="form-inline" style="margin-top: 3%;">
-<div class="form-group mx-sm-3 mb-2">
-<label for="inputText" class="sr- only">Sarech User : </label>
-<input type="number" class="form-control" placeholder="search.." [value]="num" (change)="searchInput($event)" >
-</div> 
-<button type="submit"  class="btn btn-success"
- (click)="Search()">Search</button>
-</form>
+                 <div>
 
+</div>
 
+<!-- 
 <table  class="table table-striped">
     <thead>
       <tr>
@@ -141,7 +134,63 @@
             </div>
         </div>
     </div>
-</div> 
+</div>   -->
+
+
+
+<div class="card border-0 shadow mb-4">
+<div class="card-body">
+    <form class="form-inline" style="margin-top: 3%;">
+        <div class="form-group mx-sm-3 mb-2">
+        <label for="inputText" class="sr- only">Sarech User : </label>
+        <input type="number" class="form-control" placeholder="search.." [value]="num" (change)="searchInput($event)" >
+        </div> 
+        <button type="submit"  class="btn btn-success"
+         (click)="Search()">Search</button>
+        </form>
+    <div class="table-responsive">
+        <table class="table table-centered table-nowrap mb-0 rounded">
+            <thead class="thead-light">
+            <tr>
+                <th class="border-0">id</th>
+
+                <th class="border-0">Name</th>
+                <th class="border-0">Num Vaccines</th>
+                <th class="border-0">VaccineName</th>
+                <th class="border-0">Update</th>
+                <!-- <th class="border-0">Date Dose tow</th> -->
+                
+                
+
+            </tr>
+            </thead>
+            <tbody *ngFor="let obj of user.User" >
+            <tr>
+                <td >
+                    {{obj.userid}}
+                </td>
+                <td >
+                    {{obj.fullname}}
+                </td>
+                <td>{{obj.numberofvaccines}}</td>
+                <td>{{obj.vaccinename}}</td>
+                
+                <!-- <td>{{obj.actualdatedose1 | date : 'fullDate'}}</td>
+                <td>{{obj.actualdatedose2 | date : 'fullDate'}}</td> -->
+                
+                <td  >
+                     <button  (click)="openUpdateDailog(obj)">Update</button>  
+                    <!-- <button (click)="openDeleteDailog(obj.userid)">Delete</button>   -->
+            
+                    </td>
+            </tr>
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
 
 
 
@@ -164,6 +213,22 @@
                 <br>
     
         </form>
+        <form class="example-form" [formGroup]="updateForm" >
+           
+            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> Vaccine Name</mat-label>
+            <input type="text" matInput formControlName="vaccinename"
+            [(ngModel)]="p_data.vaccinename">
+            
+            <mat-error *ngIf="updateForm.controls['vaccinename'].hasError('required')">
+                Vaccine Name <strong>required</strong>
+            </mat-error>
+            </mat-form-field>
+            <br>
+
+    </form>
+    
+
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close>Cancel</button>

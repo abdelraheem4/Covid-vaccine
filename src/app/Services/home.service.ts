@@ -217,6 +217,7 @@ export class HomeService {
       })
     }
     updateVacciniationCentre(body:any){
+      debugger
       this.spinner.show();
       this.http.put('https://localhost:44352/api/VaccinationCenter/', body).subscribe((resp)=>
       {
